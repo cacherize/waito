@@ -14,7 +14,6 @@ module Waito
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -55,7 +54,8 @@ module Waito
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
+    config.assets.precompile += %w( .woff .ttf )
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
