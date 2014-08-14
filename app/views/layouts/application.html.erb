@@ -4,11 +4,17 @@
   <title>What Am I Thinking Of?</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= favicon_link_tag '/favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="container">
-    <div id="header"><%= link_to image_tag('logo.png', alt: 'logo', id: 'logo'), root_path, title: 'Home', id: 'logoLink' %></div>
+    <div id="header">
+      <%= link_to image_tag('logo.png', alt: 'logo', id: 'logo'), root_path, title: 'Home', id: 'logoLink' %>
+      <ul id="nav">
+        <li><%= link_to 'Sign Up', '' %></li><li><%= link_to 'Login', '' %></li>
+      </ul>
+    </div>
 
     <div id="body">
       <%= yield %>
