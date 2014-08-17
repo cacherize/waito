@@ -1,6 +1,7 @@
 .form {
   display:inline-block;
   margin:20px auto;
+  text-align:left;
   .formHeader {
     margin:0 0 10px;
     font-weight:300;
@@ -27,7 +28,7 @@
       color:#fff;
       border-radius:4px;
       font-size:1.1em;
-      &:hover {cursor:pointer; background:#ffc555;}
+      &:hover {cursor:pointer; background:#ffbb39;}
     }
   }
 }
