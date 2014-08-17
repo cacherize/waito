@@ -1,0 +1,37 @@
+.form {
+  display:inline-block;
+  margin:20px auto;
+  .formHeader {
+    margin:0 0 10px;
+    font-weight:300;
+  }
+  .formField {
+    margin-bottom:10px;
+    display:inline-block;
+    position:relative;
+    label {
+      font-size:1.2em;
+    }
+    input[type="text"], input[type="password"], input[type="email"] {
+      border:1px solid #ccc;
+      border-radius:4px;
+      padding:8px 4px;
+      width:400px;
+      box-shadow:0 3px 3px #eee inset;
+      background:#f8f8f8;
+    }
+    input[type="submit"] {
+      padding:15px 20px;
+      background:orange;
+      border:0;
+      color:#fff;
+      border-radius:4px;
+      font-size:1.1em;
+      &:hover {cursor:pointer; background:#ffc555;}
+    }
+  }
+}
+input::-moz-focus-inner {
+  border: 0;
+}
+

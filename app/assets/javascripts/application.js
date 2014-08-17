@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
-//= require json2
-//= require judge
 //= require_tree .
 $(document).ready(function(){
   $("#logoLink").hover(function(){
