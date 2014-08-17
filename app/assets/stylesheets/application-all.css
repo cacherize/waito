@@ -79,3 +79,7 @@ img {border:0; outline:0;}
   width:100%;
   background:#ddd;
 }
+
+.center {text-align:center;}
+.textRight {text-align:right;}
+.textLeft {text-align:left;}
