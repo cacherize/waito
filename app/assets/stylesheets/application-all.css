@@ -23,6 +23,9 @@ img {border:0; outline:0;}
   font-family:'Roboto', sans-serif, arial;
   font-weight:300;
   color:#444;
+  position:relative;
+  width:100%;
+  min-height:100%;
 }
 #header {
   width:100%;
@@ -60,4 +63,15 @@ img {border:0; outline:0;}
 }
 #header #nav li a:hover {
   background:#ffc555;
+}
+#body {
+  padding-bottom:130px;
+}
+#footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  height:130px;
+  width:100%;
+  background:#ddd;
 }
