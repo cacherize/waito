@@ -67,6 +67,10 @@ img {border:0; outline:0;}
 #body {
   padding-bottom:130px;
 }
+#body #content {
+  margin:auto;
+  width:960px;
+}
 #footer {
   position:absolute;
   left:0;
