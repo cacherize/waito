@@ -1,10 +1,11 @@
 .form {
   display:inline-block;
-  margin:20px auto;
+  margin:55px auto;
   text-align:left;
   .formHeader {
     margin:0 0 10px;
     font-weight:300;
+    font-size:2.2em;
   }
   .formField {
     margin-bottom:10px;
@@ -21,6 +22,8 @@
       box-shadow:0 3px 3px #eee inset;
       background:#f8f8f8;
     }
+  }
+  .formSubmit {
     input[type="submit"] {
       padding:15px 20px;
       background:orange;
