@@ -22,6 +22,10 @@
       box-shadow:0 3px 3px #eee inset;
       background:#f8f8f8;
     }
+    .field_with_errors {
+      display:inline-block;
+      input {border-color:#f33;}
+    }
   }
   .formSubmit {
     input[type="submit"] {
@@ -38,4 +42,3 @@
 input::-moz-focus-inner {
   border: 0;
 }
-
