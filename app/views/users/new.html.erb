@@ -1,0 +1,34 @@
+<div class="center">
+  <%= form_for @user, html: {class: 'form'} do |f| %>
+    <h1 class="formHeader">Sign Up for Free!</h1>
+
+    <div class="formField"> 
+      <%= f.label :username %><br/>
+      <%= f.text_field :username, validate: true, class: 'liveVal' %>
+      <span class="validMsg"></span>
+    </div><br/>
+
+    <div class="formField"> 
+      <%= f.label :email %><br/>
+      <%= f.email_field :email, validate: true, class: 'liveVal' %>
+      <span class="validMsg"></span>
+    </div><br/>
+
+    <div class="formField"> 
+      <%= f.label :password %><br/>
+      <%= f.password_field :password, validate: true, class: 'liveVal', id: 'user_password' %>
+      <span class="validMsg"></span>
+    </div><br/>
+
+    <div class="formField"> 
+      <%= f.label :password_confirmation %><br/>
+      <%= f.password_field :password_confirmation, validate: true, class: 'liveVal', id: 'user_password' %>
+      <span class="validMsg"></span>
+    </div><br/>
+
+    <div class="formSubmit">
+      <%= f.submit "Sign Up" %>
+    </div>
+  <% end %>
+</div>
+<%= javascript_include_tag params[:controller] %>
