@@ -20,6 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'client_side_validations'
 # gem 'judge'
 
 # To use ActiveModel has_secure_password
