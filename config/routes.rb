@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  get 'signup' => "users#new"
   resources :users
 
   # The priority is based upon order of creation:
