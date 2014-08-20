@@ -1,25 +1,13 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   has_secure_password
-  
+  validates_confirmation_of :password
+  validates_format_of :email, with:  /^[-0-9a-z.+_]+@[-0-9a-z.+_]+\.[a-z]{2,4}$/i, if: lambda{self.email.present?}
+  validates_uniqueness_of :email, case_sensitive: false
   validates :password, presence: true, on: :create
-  validates :email, presence: true,
-    uniqueness: {case_sensitive: false},
-    format: {
-      with: /^[-0-9a-z.+_]+@[-0-9a-z.+_]+\.[a-z]{2,4}$/i,
-      if: lambda{self.email.present?}
-    },
-    on: :create
-  validates :username, presence: true,
-    uniqueness: {case_sensitive: false}, 
-    length: {minimum: 3, maximum: 30,
-      too_long:  "is too long (max 30 chars)",
-      too_short: "is too short (min 3 chars)",
-      if: lambda{self.username.present?}
-    },
-    format: {
-      with: /^[a-z0-9_-]*$/i,
-      message: 'must only contain alphanumeric characters',
-      if: lambda{self.username.present?}
-    }
+  validates :email, presence: true, on: :create
+  validates_length_of :username, minimum: 3, maximum: 30
+  validates_length_of :password, minimum: 8, maximum: 100, if: lambda{self.password.present?}
+  validates_format_of :username, with: /^[a-z0-9_-]*$/i, message: 'must only contain alphanumeric characters', if: lambda{self.username.present?}
+  validates :username, presence: true, uniqueness: {case_sensitive: false}
 end
