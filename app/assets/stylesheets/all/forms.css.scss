@@ -26,6 +26,16 @@
       display:inline-block;
       input {border-color:#f33;}
     }
+    .validField, .invalidField {
+      position:absolute;
+      top:2.3em;
+      left:100%;
+      white-space: nowrap;
+      font-size:12pt;
+      margin-left:15px;
+      color:green;
+    }
+    .invalidField {color:#f33;}
   }
   .formSubmit {
     padding:5px 0 0 0;
