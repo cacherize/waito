@@ -12,6 +12,7 @@
     display:inline-block;
     position:relative;
     label {font-size:1.2em; text-transform:capitalize;}
+    .fieldReq {float:right; color:#aaa; font-size:0.7em; padding-top:0.8em;}
     input[type="text"], input[type="password"], input[type="email"] {
       border:1px solid #ccc;
       border-radius:4px;

@@ -3,7 +3,7 @@
     <h1 class="formHeader">Sign Up for Free!</h1>
 
     <div class="formField"> 
-      <%= f.label :username %><br/>
+      <%= f.label :username %><span class="fieldReq">Minimum 3 characters</span><br/>
       <%= f.text_field :username, required: true, data: {'parsley-minlength' => '3', 'parsley-maxlength' => '30', 'parsley-type' => "alphanum"} %>
     </div><br/>
 
@@ -14,7 +14,7 @@
     </div><br/>
 
     <div class="formField"> 
-      <%= f.label :password %><br/>
+      <%= f.label :password %><span class="fieldReq">Minimum 8 characters</span><br/>
       <%= f.password_field :password, required: true, data: {'parsley-minlength' => '8', 'parsley-maxlength' => '100'} %>
     </div><br/>
 
