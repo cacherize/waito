@@ -20,7 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'parsley-rails'
+# gem 'parsley-rails'
 # gem 'client_side_validations'
 # gem 'judge'
 
