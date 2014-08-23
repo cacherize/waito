@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require parsley
+//= require parsley.remote.min
+//= require parsley.min
 //= require parsley.i18n.en
 
 $(document).ready(function(){
