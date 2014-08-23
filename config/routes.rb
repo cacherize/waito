@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  get 'username_check' => 'username_check#index'
   get 'signup' => "users#new"
   resources :users
 
