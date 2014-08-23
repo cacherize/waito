@@ -25,6 +25,7 @@
       display:inline-block;
       input {border-color:#f33;}
     }
+    input.validError {border-color:#f33;}
     .parsley-errors-list {
       position:absolute;
       top:2.3em;
