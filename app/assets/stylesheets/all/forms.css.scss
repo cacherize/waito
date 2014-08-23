@@ -24,31 +24,34 @@
       display:inline-block;
       input {border-color:#f33;}
     }
-    .validField, .invalidField {
+    .parsley-errors-list {
       position:absolute;
       top:2.3em;
       left:100%;
       white-space: nowrap;
       font-size:12pt;
-      margin-left:15px;
-      color:green;
+      margin:0 0 0 15px;
       padding-left:24px;
-      &:after {
-        content:' ';
-        position:absolute;
-        left:0;
-        top:2px;
-        width:18px;
-        height:18px;
-        background-image:image-url('sprites/icon_sprite.png');
-        background-repeat:no-repeat;
-        background-position:0 0;
-        overflow:hidden;
-      }
-    }
-    .invalidField {
       color:#f33;
-      &:after {background-position:-18px 0;}
+      li {
+        list-style-type:none;
+        &:after {
+          content:' ';
+          position:absolute;
+          left:0;
+          top:2px;
+          width:18px;
+          height:18px;
+          background-image:image-url('sprites/icon_sprite.png');
+          background-repeat:no-repeat;
+          background-position:-18px 0;
+          overflow:hidden;
+        }
+      }
+      .validField {
+        color:green;
+        &:after {background-position:0 0;}
+      }
     }
     #emailFix {font-size:0.85em;}
   }

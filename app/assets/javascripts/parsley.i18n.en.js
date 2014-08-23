@@ -10,7 +10,7 @@ window.ParsleyConfig.i18n.en = $.extend(window.ParsleyConfig.i18n.en || {}, {
     number: "Invalid number",
     integer: "Invalid integer",
     digits: "Invalid digits",
-    alphanum: "Value must be alphanumeric"
+    alphanum: "Alphanumeric characters only (A-Z, a-z, 0-9)"
   },
   notblank: "Field cannot be blank",
   required: "Field is required",
