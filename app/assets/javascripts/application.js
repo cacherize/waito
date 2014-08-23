@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails.validations
+//= require parsley
+//= require parsley.i18n.en
 
 $(document).ready(function(){
   $("#logoLink").hover(function(){
