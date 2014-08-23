@@ -9,7 +9,7 @@
 
     <div class="formField"> 
       <%= f.label :email %><br/>
-      <%= f.email_field :email, required: true, data: {'parsley-type' => 'email', 'parsley-remote-reverse' => 'true', 'parsley-remote' => "#{username_check_url}", 'parsley-remote-message' => 'That email is already being used'} %>
+      <%= f.email_field :email, required: true, data: {'parsley-type' => 'email', 'parsley-remote-reverse' => 'true'} %>
       <div id="emailFix"></div>
     </div><br/>
 
