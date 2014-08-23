@@ -20,4 +20,3 @@ ClientSideValidations.callbacks.element.pass = function($element, callback) {
   $element.after('<span class="validField">That works!</span');
   // Add a success message to give the user an ego lift.
 };
-=
