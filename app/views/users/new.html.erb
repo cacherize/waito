@@ -4,12 +4,12 @@
 
     <div class="formField"> 
       <%= f.label :username %><span class="fieldReq">Minimum 3 characters</span><br/>
-      <%= f.text_field :username, required: true, data: {'parsley-minlength' => '3', 'parsley-maxlength' => '30', 'parsley-type' => "alphanum"} %>
+      <%= f.text_field :username, required: true, data: {'parsley-minlength' => '3', 'parsley-maxlength' => '30', 'parsley-type' => "alphanum", 'parsley-remote-reverse' => 'true', 'parsley-remote' => "#{username_check_url}", 'parsley-remote-message' => 'That username is taken'} %>
     </div><br/>
 
     <div class="formField"> 
       <%= f.label :email %><br/>
-      <%= f.email_field :email, required: true, 'data-parsley-type' => 'email' %>
+      <%= f.email_field :email, required: true, data: {'parsley-type' => 'email', 'parsley-remote-reverse' => 'true', 'parsley-remote' => "#{username_check_url}", 'parsley-remote-message' => 'That email is already being used'} %>
       <div id="emailFix"></div>
     </div><br/>
 
