@@ -66,6 +66,7 @@
       border-radius:4px;
       font-size:1.1em;
       &:hover {cursor:pointer; background:#ffbb39;}
+      &.disabled:hover, &.disabled {background-color:#FFD8B1;}
     }
   }
 }
