@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /^[a-z0-9_-]*$/i, message: 'must only contain alphanumeric characters'
   validates :username, presence: true, uniqueness: {case_sensitive: false}
 
+  def self.username_search(arg)
+    where('lower(username) = ?', arg.downcase).first
+  end
+
   def self.find_by_email_or_username(arg)
     if arg.match(/^[-0-9a-z.+_]+@[-0-9a-z.+_]+\.[a-z]{2,4}$/i)
       find_by_email(arg.downcase)
