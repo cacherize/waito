@@ -39,6 +39,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rack-mini-profiler'
+  gem "letter_opener"
 end
 
 group :test do
