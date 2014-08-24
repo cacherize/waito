@@ -9,7 +9,13 @@ $(document).ready(function(){
   });
 
   $.listen('parsley:field:success',function(field){
-    field.$element.siblings(".parsley-errors-list").html("<li class='validField'>That works!</li>")
+    var $el = field.$element
+
+    if ( $el.parent().is( "div.field_with_errors" ) ) {
+      $el.unwrap();
+    }
+
+    $el.siblings(".parsley-errors-list").html("<li class='validField'>That works!</li>")
   });
 
   $.listen('parsley:field:error',function(field){
