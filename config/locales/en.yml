@@ -6,4 +6,9 @@ en:
     errors:
       messages:
         blank: 'is required'
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'Already being used'
 
