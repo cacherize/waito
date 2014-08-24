@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy]
   get 'username_check' => 'username_check#index'
   get 'signup' => "users#new"
   resources :users
