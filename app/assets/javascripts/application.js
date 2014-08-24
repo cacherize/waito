@@ -22,4 +22,36 @@ $(document).ready(function(){
   }, function(){
     $("#logo").stop().animate({bottom: 0});
   });
+
+  if ($(".flash").length > 0) {
+    timeoutFlashMessage();
+
+    $(".flash").on('click', '.flashShow, .flashClose', function(event){
+      var $that = $(this),
+          $parent = $that.parent('.flash'),
+          $flashMsg = $that.siblings("p");
+
+
+      if ($flashMsg.is(":visible")) {
+        $that.hide();
+
+        $flashMsg.stop().slideUp(function(){
+          $that.siblings('.flashShow').show();
+        });
+      } else {
+        $that.hide();
+        timeoutFlashMessage();
+      }
+      event.preventDefault();
+    });
+  }
 });
+
+var timeoutFlashMessage = function() {
+  var $flashMsg = $(".flash p");
+  $flashMsg.stop().slideDown(function(){
+    $(".flash .flashClose").show();
+  }).delay(6000).slideUp(function(){
+    $(".flash .flashShow").show();
+  });
+}
