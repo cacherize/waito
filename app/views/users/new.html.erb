@@ -1,6 +1,7 @@
 <div class="center">
   <%= form_for @user, html: {class: 'form'} do |f| %>
     <h1 class="formHeader">Sign Up for Free!</h1>
+    <%= form_errors_for(@user) %>
 
     <div class="formField"> 
       <%= f.label :username %><span class="fieldReq">Minimum 3 characters</span><br/>

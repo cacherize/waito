@@ -71,6 +71,20 @@
       &.disabled:hover, &.disabled {background-color:#FFD8B1;}
     }
   }
+  .formErrors {
+    background:#f33;
+    padding:25px;
+    border-radius:8px;
+    color:#fff;
+    margin:0 0 8px;
+    .errorsHeader {
+      margin:0;
+    }
+    ul {
+      margin:5px 0 0 0;
+      li {font-size:0.9em;}
+    }
+  }
 }
 input::-moz-focus-inner {
   border: 0;
