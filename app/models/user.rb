@@ -15,11 +15,21 @@ class User < ActiveRecord::Base
 
   #=== CALLBACKS ===#
   before_validation :downcase_email
+  before_create { generate_token(:auth_token) }
+  #=== END CALLBACKS ===#
 
   def downcase_email
     self.email.downcase! if self.email_changed?
   end
-  #=== END CALLBACKS ===#
+
+  def generate_token(column)
+    column = column.to_sym
+
+    self[column] = loop do
+      token = SecureRandom.urlsafe_base64(nil, false)
+      break token unless User.exists?(column => token)
+    end
+  end
 
   def self.username_search(arg)
     where('lower(username) = ?', arg.downcase).first
