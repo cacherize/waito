@@ -85,7 +85,8 @@ li {list-style-type:square;}
 .center {text-align:center;}
 .textRight {text-align:right;}
 .textLeft {text-align:left;}
-
+.right {float:right;}
+.left {float:left;}
 
 /* BOOTSTRAP LABELS & BADGES */
 .label {
