@@ -2,7 +2,7 @@ class UsernameCheckController < ApplicationController
   def index
     username = params[:user][:username]
 
-    user = User.search_username(username)
+    user = User.username_search(username)
 
     respond_to do |format|
       if user
