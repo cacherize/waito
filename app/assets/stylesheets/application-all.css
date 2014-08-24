@@ -90,6 +90,17 @@ li {list-style-type:square;}
 .right {float:right;}
 .left {float:left;}
 
+.flash {
+  padding:0;
+  margin:0;
+  text-align:center;
+  color:#fff;
+  line-height:40px;
+  height:40px;
+}
+.alert {background:#f33;}
+.notice {background:green;}
+
 /* BOOTSTRAP LABELS & BADGES */
 .label {
   font-family:sans-serif;
