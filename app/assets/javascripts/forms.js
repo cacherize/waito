@@ -8,19 +8,6 @@ $(document).ready(function(){
     errorClass: 'validError'
   });
 
-  // $.listen('parsley:form:validated', function(form){
-  //   console.log(form)
-  //   var $errors = window.ParsleyUI.getErrorsMessages(form)
-
-  //   if ($errors.length == 0) {
-  //     $submit.removeAttr('disabled');
-  //     $submit.removeClass('disabled');
-  //   } else {
-  //     $submit.attr('disabled', 'disabled');
-  //     $submit.addClass('disabled');
-  //   }
-  // });
-
   $.listen('parsley:field:success',function(field){
     field.$element.siblings(".parsley-errors-list").html("<li class='validField'>That works!</li>")
   });
