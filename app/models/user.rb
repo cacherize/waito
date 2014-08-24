@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   has_secure_password
 
+  #=== VALIDATIONS ===#
   validates :email, presence: true, on: :create
   validates_format_of :email, with:  /^[-0-9a-z.+_]+@[-0-9a-z.+_]+\.[a-z]{2,4}$/i
   validates_uniqueness_of :email, case_sensitive: false
@@ -10,6 +11,15 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /^[a-z0-9_-]*$/i, message: 'must only contain alphanumeric characters'
   validates :password, presence: true, on: :create
   validates_length_of :password, minimum: 8, maximum: 100, if: lambda{self.password.present?}
+  #=== END VALIDATIONS ===#
+
+  #=== CALLBACKS ===#
+  before_validation :downcase_email
+
+  def downcase_email
+    self.email.downcase! if self.email_changed?
+  end
+  #=== END CALLBACKS ===#
 
   def self.username_search(arg)
     where('lower(username) = ?', arg.downcase).first
