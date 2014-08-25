@@ -4,12 +4,12 @@
     <%= form_errors_for(@user) %>
     <div class="formField">
       <%= f.label :password, "New Password" %><br/>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, required: true, data: {'parsley-minlength' => '8', 'parsley-maxlength' => '100'} %>
     </div><br/>
 
     <div class="formField">
       <%= f.label :password_confirmation, "Password Confirmation" %><br/>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, required: true, data: {'parsley-equalto' => '#user_password', 'parsley-equalto-message' => "Doesn't match password"} %>
     </div><br/>
 
     <div class="formSubmit">
@@ -17,3 +17,4 @@
     </div>
   <% end %>
 </div>
+<%= javascript_include_tag 'forms' %>
