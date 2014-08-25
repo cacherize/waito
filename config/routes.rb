@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
   resources :password_resets, only: [:new, :create, :edit, :update]
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
