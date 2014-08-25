@@ -1,0 +1,19 @@
+<div class="center">
+  <%= form_for @user, url: password_reset_path, method: :put, html: {class: 'form'} do |f| %>
+    <h1 class="formHeader">Set New Password</h1>
+
+    <div class="formField">
+      <%= f.label :password, "New Password" %><br/>
+      <%= f.password_field :password %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :password_confirmation, "Password Confirmation" %><br/>
+      <%= f.password_field :password_confirmation %>
+    </div><br/>
+
+    <div class="formSubmit">
+      <%= f.submit 'Update Password' %>
+    </div>
+  <% end %>
+</div>
