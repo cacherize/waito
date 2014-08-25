@@ -3,6 +3,12 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
+    if params[:login].blank?
+      flash[:alert] = "You must enter a username or email address."
+      redirect_to forgot_password_path
+      return
+    end
+
     user = User.find_by_email_or_username(params[:login])
     
     if user
