@@ -1,4 +1,7 @@
 class PasswordResetsController < ApplicationController
+  require 'action_view'
+  include ActionView::Helpers::DateHelper
+
   def new
   end
 
@@ -10,8 +13,14 @@ class PasswordResetsController < ApplicationController
     end
 
     user = User.find_by_email_or_username(params[:login])
-    
+
     if user
+      if user.password_reset_sent_at && (user.password_reset_sent_at > 5.minutes.ago)
+        clock = distance_of_time_in_words(user.password_reset_sent_at - 5.minutes.ago)
+        flash.now.alert = "You already requested a password reset. Please wait #{clock} before requesting again."
+        render :new
+        return
+      end
       user.reset_password
     end
 
