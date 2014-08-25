@@ -42,4 +42,11 @@ class User < ActiveRecord::Base
       where("lower(username) = ?", arg.downcase).first
     end
   end
+
+  def reset_password
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    self.save!
+    Messager.reset_password(self.id).deliver
+  end
 end
