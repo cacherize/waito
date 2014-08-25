@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
     user = User.find_by_email_or_username(params[:login])
 
     if user && user.authenticate(params[:password])
+      if !user.activated?
+        flash.now.alert = "Check your inbox for an account activation email. You must activate your account first to login."
+        render :new
+        return
+      end
+
       session[:user_id] = user.id
       redirect_to root_url, notice: "Successfully logged in!"
     else
