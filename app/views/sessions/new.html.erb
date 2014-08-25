@@ -9,7 +9,7 @@
       <%= label_tag :password %><br/>
       <%= password_field_tag :password, '', tabindex: '2' %>
     </div><br/>
-    <%= link_to "Forgot your password?", '', class: 'right' %>
+    <%= link_to "Forgot your password?", forgot_password_path, class: 'right' %>
     <div class="formSubmit">
       <%= submit_tag 'Login', tabindex: '3' %>
     </div>
