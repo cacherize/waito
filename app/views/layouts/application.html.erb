@@ -28,7 +28,7 @@
     <div id="body">
       <% if flash[:alert] || flash[:notice] %>
         <div class="flash">
-          <%= link_to 'X', '#', class: 'flashClose' %>
+          <%= link_to '&#10005;'.html_safe, '#', class: 'flashClose' %>
           <% if flash[:alert] %>
             <%= link_to '!', '#', class: 'flashShow' %>
             <p class="alert"><%= flash[:alert] %></p>

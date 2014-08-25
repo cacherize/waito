@@ -39,7 +39,6 @@ $(document).ready(function(){
           $that.siblings('.flashShow').show();
         });
       } else {
-        $that.hide();
         timeoutFlashMessage();
       }
       event.preventDefault();
@@ -49,9 +48,15 @@ $(document).ready(function(){
 
 var timeoutFlashMessage = function() {
   var $flashMsg = $(".flash p");
+  $(".flash .flashShow").hide();
   $flashMsg.stop().slideDown(function(){
     $(".flash .flashClose").show();
-  }).delay(6000).slideUp(function(){
-    $(".flash .flashShow").show();
+  }).delay(6000).slideUp({
+    start: function(){
+      $(".flash .flashClose").hide()
+    },
+    complete: function(){
+      $(".flash .flashShow").show()
+    }
   });
 }
