@@ -95,6 +95,14 @@
     }
   }
 }
+
+#postForm {
+  .formField {
+    input[type="text"], textarea {width:525px;}
+    textarea {height:300px;}
+  }
+}
+
 input::-moz-focus-inner {
   border: 0;
 }
