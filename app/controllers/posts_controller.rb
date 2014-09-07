@@ -19,9 +19,19 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.update_attributes(params[:post])
+        format.html {redirect_to @post, notice: 'Success! Updated post!'}
+      else
+        format.html {render :edit}
+      end
+    end
   end
 
   def destroy
