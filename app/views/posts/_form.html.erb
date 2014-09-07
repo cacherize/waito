@@ -1,0 +1,29 @@
+<div class="center">
+  <%= form_for @post, html: {class: 'form', id: 'postForm'} do |f| %>
+    <!-- <h1 class="formHeader">Reset Password</h1> -->
+
+    <!-- <p class="formInstructions">
+      Enter your username or email below and then check your inbox for<br/> an email with password reset instructions.
+    </p> -->
+    <%= form_errors_for(@post) %>
+
+    <div class="formField">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :description %><br/>
+      <%= f.text_area :description %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :tag_list, "Tags (seperate each by a comma)" %><br/>
+      <%= f.text_field :tag_list, value: @post.tags.map(&:name).join(", ") %>
+    </div>
+    
+    <div class="formSubmit">
+      <%= f.submit 'Create Post' %>
+    </div>
+  <% end %>
+</div>
