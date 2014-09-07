@@ -5,7 +5,8 @@
     <!-- <p class="formInstructions">
       Enter your username or email below and then check your inbox for<br/> an email with password reset instructions.
     </p> -->
-
+    <%= form_errors_for(@post) %>
+    
     <div class="formField">
       <%= f.label :title %><br/>
       <%= f.text_field :title %>
