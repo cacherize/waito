@@ -1,6 +1,7 @@
 module FormHelper
   def form_errors_for(object)
     return unless object
+    
     if object.errors.messages.present?
       errors = []
       object.errors.full_messages.each do |msg|
