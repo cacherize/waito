@@ -7,6 +7,15 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(params[:post])
+
+    respond_to do |format|
+      if @post.save
+        format.html{redirect_to @post, notice: "Success! Added post!"}
+      else
+        format.html{render :new}
+      end
+    end
   end
 
   def edit
