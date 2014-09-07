@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  resources :tags
   resources :posts
 
   get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
