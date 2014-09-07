@@ -15,6 +15,7 @@
 //= require parsley.remote.min
 //= require parsley.min
 //= require parsley.i18n.en
+//= require select2
 
 $(document).ready(function(){
   $("#logoLink").hover(function(){
