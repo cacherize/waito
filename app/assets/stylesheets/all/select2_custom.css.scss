@@ -1,0 +1,46 @@
+.form {
+  .formField {
+    #s2id_post_tag_ids {
+      border:1px solid #ccc;
+      border-radius:4px;
+      padding:8px 4px;
+      width:400px;
+      box-shadow:0 3px 3px #eee inset;
+      background:#f8f8f8;
+      ul.select2-choices {
+        background:none;
+        box-shadow:none;
+        border:0;
+        li.select2-search-field {
+          background:none;
+          box-shadow:none;
+          label, input {border:0; background:none; box-shadow:none;}
+        }
+        li.select2-search-choice {
+          padding:7px 10px 7px 18px;
+          border:1px solid #ccc;
+          font-size:0.9em;
+          line-height:1;
+          background:#dedede;
+          border:0;
+          box-shadow:none;
+          color:#444;
+          a.select2-search-choice-close {
+            top:8.5px;
+          }
+        }
+      }
+    }
+  }
+}
+#select2-drop {
+  font-family:'Roboto', sans-serif, arial;
+  font-size:0.9em;
+  border-color:#ccc;
+  .select2-results {
+    .select2-highlighted {
+      background:orange;
+      border-radius:3px;
+    }
+  }
+}
