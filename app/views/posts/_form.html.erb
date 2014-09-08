@@ -35,7 +35,7 @@ $("#post_tag_list").select2({
   multiple: true,
   ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
     url: "<%= tag_search_path %>",
-    dataType: 'json',
+    dataType: 'jsonp',
     quietMillis: 750,
     data: function (term, page) {
       return {
