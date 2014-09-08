@@ -1,0 +1,77 @@
+<div class="center">
+  <%= form_for @post, html: {class: 'form', id: 'postForm'} do |f| %>
+    <!-- <h1 class="formHeader">Reset Password</h1> -->
+
+    <!-- <p class="formInstructions">
+      Enter your username or email below and then check your inbox for<br/> an email with password reset instructions.
+    </p> -->
+    <%= form_errors_for(@post) %>
+
+    <div class="formField">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :description %><br/>
+      <%= f.text_area :description %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :tag_list, "Tags" %><br/>
+      <%= f.hidden_field :tag_list, value: @post.tag_ids.join(",") %>
+    </div>
+    
+    <div class="formSubmit">
+      <%= f.submit 'Create Post' %>
+    </div>
+  <% end %>
+</div>
+<script>
+$("#post_tag_list").select2({
+  placeholder: "Search for a tag",
+  minimumInputLength: 1,
+  width: 500,
+  multiple: true,
+  ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+    url: "<%= tag_search_path %>",
+    dataType: 'jsonp',
+    quietMillis: 750,
+    data: function (term, page) {
+      return {
+        term: term, // search term
+        page_limit: 10
+      };
+    },
+    results: function (data, page) { // parse the results into the format expected by Select2.
+    // since we are using custom formatting functions we do not need to alter remote JSON data
+      return {
+        results: $.map( data, function(tag, i) {
+          return { id: tag.id, text: tag.name }
+        })
+      } 
+    }
+  },
+  initSelection: function(element, callback) {
+    // the input tag has a value attribute preloaded that points to a preselected movie's id
+    // this function resolves that id attribute to an object that select2 can render
+    // using its formatResult renderer - that way the movie name is shown preselected
+    var ids=$(element).val();
+    if (ids!=="") {
+      var values = ids.split(",");
+      $.ajax("<%= tag_add_path %>", {
+        data: {
+          tag_ids: values
+        },
+        dataType: "jsonp"
+      }).done(function(data) { 
+        var arry = [];
+        $.map( data, function(tag, i) {
+          arry.push({ id: tag.id, text: tag.name })
+        })
+        callback(arry)
+      });
+    }
+  }
+});
+</script>

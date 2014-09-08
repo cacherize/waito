@@ -20,7 +20,7 @@
     position:relative;
     label {font-size:1.2em; text-transform:capitalize;}
     .fieldReq {float:right; color:#aaa; font-size:0.7em; padding-top:0.8em;}
-    input[type="text"], input[type="password"], input[type="email"] {
+    input[type="text"], input[type="password"], input[type="email"], textarea {
       border:1px solid #ccc;
       border-radius:4px;
       padding:8px 4px;
@@ -28,6 +28,7 @@
       box-shadow:0 3px 3px #eee inset;
       background:#f8f8f8;
     }
+    textarea {font-family:sans-serif,arial; font-size:0.85em; height:250px;}
     .field_with_errors {
       display:inline-block;
       input {border-color:#f33;}
@@ -94,6 +95,14 @@
     }
   }
 }
+
+#postForm {
+  .formField {
+    input[type="text"], textarea {width:525px;}
+    textarea {height:300px;}
+  }
+}
+
 input::-moz-focus-inner {
   border: 0;
 }

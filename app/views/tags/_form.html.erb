@@ -1,0 +1,20 @@
+<div class="center">
+  <%= form_for @tag, html: {class: 'form'} do |f| %>
+    <h1 class="formHeader"><%= params[:action].titleize %> Tag</h1>
+    <%= form_errors_for(@tag) %>
+
+    <div class="formField">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :description %><br/>
+      <%= f.text_area :description %>
+    </div><br/>
+
+    <div class="formSubmit">
+      <%= f.submit "#{params[:action].titleize} Tag" %>
+    </div>
+  <% end %>
+</div>

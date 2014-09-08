@@ -1,4 +1,9 @@
 Waito::Application.routes.draw do
+  get 'tag_add', to: 'tag_search#show', as: 'tag_add'
+  get 'tag_search', to: 'tag_search#index', as: 'tag_search'
+  resources :tags
+  resources :posts
+
   get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
   resources :password_resets, only: [:new, :create, :edit, :update]
   get 'login', to: 'sessions#new', as: 'login'
