@@ -18,8 +18,8 @@
     </div><br/>
 
     <div class="formField">
-      <%= f.label :tag_ids, "Tags" %><br/>
-      <%= f.hidden_field :tag_ids, value: @post.tag_ids.join(",") %>
+      <%= f.label :tag_list, "Tags" %><br/>
+      <%= f.hidden_field :tag_list, value: @post.tag_ids.join(",") %>
     </div>
     
     <div class="formSubmit">
@@ -28,7 +28,7 @@
   <% end %>
 </div>
 <script>
-$("#post_tag_ids").select2({
+$("#post_tag_list").select2({
   placeholder: "Search for a tag",
   minimumInputLength: 1,
   width: 500,
