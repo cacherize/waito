@@ -18,8 +18,8 @@
     </div><br/>
 
     <div class="formField">
-      <%= f.label :tag_list, "Tags (seperate each by a comma)" %><br/>
-      <%= f.text_field :tag_list, value: @post.tags.map(&:name).join(", ") %>
+      <%= f.label :tag_ids, "Tags (seperate each by a comma)" %><br/>
+      <%= f.hidden_field :tag_ids, value: @post.tag_ids.join(",") %>
     </div>
     
     <div class="formSubmit">
@@ -27,3 +27,51 @@
     </div>
   <% end %>
 </div>
+<script>
+$("#post_tag_ids").select2({
+  placeholder: "Search for a tag",
+  minimumInputLength: 1,
+  width: 500,
+  multiple: true,
+  ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+    url: "<%= tag_search_path %>",
+    dataType: 'json',
+    quietMillis: 750,
+    data: function (term, page) {
+      return {
+        term: term, // search term
+        page_limit: 10
+      };
+    },
+    results: function (data, page) { // parse the results into the format expected by Select2.
+    // since we are using custom formatting functions we do not need to alter remote JSON data
+      return {
+        results: $.map( data, function(tag, i) {
+          return { id: tag.id, text: tag.name }
+        })
+      } 
+    }
+  },
+  initSelection: function(element, callback) {
+    // the input tag has a value attribute preloaded that points to a preselected movie's id
+    // this function resolves that id attribute to an object that select2 can render
+    // using its formatResult renderer - that way the movie name is shown preselected
+    var ids=$(element).val();
+    if (ids!=="") {
+      var values = ids.split(",");
+      $.ajax("<%= tag_add_path %>", {
+        data: {
+          tag_ids: values
+        },
+        dataType: "jsonp"
+      }).done(function(data) { 
+        var arry = [];
+        $.map( data, function(tag, i) {
+          arry.push({ id: tag.id, text: tag.name })
+        })
+        callback(arry)
+      });
+    }
+  }
+});
+</script>
