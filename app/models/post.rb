@@ -5,6 +5,12 @@ class Post < ActiveRecord::Base
   has_many :tags, through: :post_tags
 
   validates :title, presence: true, length: {maximum: 325}
+  validates :tags, presence: {message: "must be added"}
+  validate :tag_count
+
+  def tag_count
+    errors.add(:tags, 'exceed maximum allowed (maximum 5 tags)') if tags.size > 5
+  end
 
   def tag_list=(values)
     self.tag_ids = values.to_s.split(",")
