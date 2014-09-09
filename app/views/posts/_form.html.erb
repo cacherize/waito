@@ -8,8 +8,8 @@
     <%= form_errors_for(@post) %>
 
     <div class="formField">
-      <%= f.label :title %><br/>
-      <%= f.text_field :title %>
+      <%= f.label :title %><span class="fieldReq"><span id="titleCharCount">175</span> characters remaining</span><br/>
+      <%= f.text_field :title, maxlength: 175 %>
     </div><br/>
 
     <div class="formField">
@@ -74,4 +74,13 @@ $("#post_tag_list").select2({
     }
   }
 });
+
+var max = parseInt($("#titleCharCount").text());
+$('#post_title').keyup(function () {
+  var len = $(this).val().length,
+      ch = max - len;
+
+  $('#titleCharCount').text(ch);
+});
+$('#post_title').trigger("keyup");
 </script>
