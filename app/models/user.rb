@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
   has_secure_password
 
+  has_many :posts
+
   #=== VALIDATIONS ===#
   validates :email, presence: true, on: :create
   validates_format_of :email, with:  /^[-0-9a-z.+_]+@[-0-9a-z.+_]+\.[a-z]{2,4}$/i

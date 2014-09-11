@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 
   has_many :post_tags, autosave: true
   has_many :tags, through: :post_tags
+  belongs_to :user
 
   validates :title, presence: true, length: {maximum: 150}
   validates :tags, presence: {message: "must be added"}
