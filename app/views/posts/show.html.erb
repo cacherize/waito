@@ -1,0 +1,15 @@
+<div class="postMain postContraint"> 
+  <h1 class="postTitle"><%= @post.title %></h1>
+  <div><%= @post.description %></div>
+  <div class="postBottom">
+    <p class="postTags">
+      <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>
+    </p>
+  </div>
+
+  <div class="postUser">
+    <%= image_tag('default_user.png') %>
+    <span class="postUsername"><%= link_to @post.user.username %></span>
+  </div>
+</div>
+<hr class="dottedDivider" />
