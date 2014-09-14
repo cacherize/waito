@@ -1,6 +1,10 @@
 <div class="postMain postContraint"> 
   <h1 class="postTitle"><%= @post.title %></h1>
-  <div><%= @post.description %></div>
+  <div class="postActionLinks">
+    <%= link_to '<span class="actionIcon edit"></span> Edit Post'.html_safe, edit_post_path(@post), class: 'actionLink' %>
+    <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, class: 'actionLink deleteLink' %>
+  </div>
+  <div class="postContent"><%= @post.description %></div>
   <div class="postBottom">
     <p class="postTags">
       <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>

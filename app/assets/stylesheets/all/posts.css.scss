@@ -4,8 +4,13 @@
   position:relative;
   margin:30px 0 20px;
   .postTitle {
-    margin:0 0 20px 0;
+    margin:0;
     line-height:1.2;
+  }
+  .postActionLinks {
+    font-size:0.85em;
+    margin-top:5px;
+    a {margin-right:5px;}
   }
   .postUser {
     position:absolute;
@@ -18,11 +23,13 @@
     padding:0 15px 0 0;
     text-align:center;
     img {border-radius:5%;}
-    .postUsername {font-size:1.5em;}
+    .postUsername {font-size:1.1em;}
+  }
+  .postContent {
+    margin:20px 0;
   }
   .postBottom {
     display:inline-block;
-    margin-top:20px;
     .postTags {
       margin:0;
     }
