@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140907011715) do
+ActiveRecord::Schema.define(:version => 20140915024833) do
 
   create_table "post_tags", :force => true do |t|
     t.integer  "post_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20140907011715) do
     t.datetime "archived_at"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "tags", :force => true do |t|
