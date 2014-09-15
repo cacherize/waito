@@ -68,7 +68,7 @@
   }
   .formSubmit {
     padding:5px 0 0 0;
-    height:40px;
+    height:50px;
     input[type="submit"], button.submitBtn {
       background:orange;
       border:0;
@@ -86,12 +86,12 @@
       vertical-align: top;
       height:100%;
       color:#fff;
-      padding:0 12px;
+      padding:0 15px;
       font-size:13pt;
       font-weight:400;
       font-family:sans-serif, arial;
       border-radius:4px;
-      line-height:40px;
+      line-height:50px;
       letter-spacing:-1px;
     }
     button.submitBtn, .cancelForm {
