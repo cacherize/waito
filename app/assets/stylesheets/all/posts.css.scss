@@ -29,9 +29,36 @@
     margin:20px 0;
   }
   .postBottom {
-    display:inline-block;
     .postTags {
       margin:0;
+      display:inline-block;
+    }
+    .postRep {
+      float:right;
+      display:inline-block;
+      height:24px;
+      .like, .dislike {
+        width:24px;
+        height:24px;
+        display:inline-block;
+        background-image:image-url('sprites/voting_icons.png');
+        background-position:0 0;
+        vertical-align: middle;
+        &:hover {background-position:-24px 0;}
+        &:active {background-position:-48px 0;}
+      }
+      .dislike {
+        background-position:-120px 0;
+        &:hover {background-position:-96px 0;}
+        &:active {background-position:-72px 0;}
+      }
+      #repCount {
+        font-size:1.2em;
+        font-weight:bold;
+        display:inline-block;
+        height:100%;
+        margin:0 10px;
+      }
     }
   }
 }

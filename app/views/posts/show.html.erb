@@ -6,9 +6,14 @@
   </div>
   <div class="postContent"><%= @post.description %></div>
   <div class="postBottom">
-    <p class="postTags">
+    <div class="postTags">
       <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>
-    </p>
+    </div>
+    <div class="postRep">
+      <%= link_to '', '', class: 'like' %>
+      <p id="repCount">2334</p>
+      <%= link_to '', '', class: 'dislike' %>
+    </div>
   </div>
 
   <div class="postUser">
