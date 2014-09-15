@@ -16,4 +16,8 @@ class Post < ActiveRecord::Base
   def tag_list=(values)
     self.tag_ids = values.to_s.split(",")
   end
+
+  def deleted?
+    self.deleted_at.present?
+  end
 end
