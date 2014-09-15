@@ -75,9 +75,20 @@
       color:#fff;
       border-radius:4px;
       font-size:1.1em;
+      font-family:sans-serif, arial;
       &:hover {cursor:pointer; background:#ffbb39;}
       &.disabled:hover, &.disabled {background-color:#FFD8B1;}
       &:focus {background-color:#ffbb39;}
+    }
+    .cancelForm {
+      margin-left:10px;
+      font-size:1.1em;
+      padding:15px 20px;
+      background:#f33;
+      color:#fff;
+      border-radius:4px;
+      font-family:sans-serif, arial;
+      font-weight:400;
     }
   }
   .formErrors {
