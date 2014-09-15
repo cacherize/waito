@@ -43,7 +43,7 @@
         display:inline-block;
         background-image:image-url('sprites/voting_icons.png');
         background-position:0 0;
-        vertical-align: middle;
+        vertical-align: top;
         &:hover {background-position:-24px 0;}
         &:active {background-position:-48px 0;}
       }
@@ -53,6 +53,7 @@
         &:active {background-position:-72px 0;}
       }
       #repCount {
+        line-height:1.1;
         font-size:1.2em;
         font-weight:bold;
         display:inline-block;
