@@ -36,5 +36,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+
+    respond_to do |format|
+      if @post.destroy
+        format.html {redirect_to root_path, notice: 'Success! Post deleted!'}
+      else
+        format.html {redirect_to @post, alert: "An error occurred. Please try again."}
+      end
+    end
   end
 end
