@@ -2,7 +2,7 @@
   <h1 class="postTitle"><%= @post.title %></h1>
   <div class="postActionLinks">
     <%= link_to '<span class="actionIcon edit"></span> Edit Post'.html_safe, edit_post_path(@post), class: 'actionLink' %>
-    <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, class: 'actionLink deleteLink' %>
+    <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, method: :delete, class: 'actionLink deleteLink' %>
   </div>
   <div class="postContent"><%= @post.description %></div>
   <div class="postBottom">
