@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
+
+    if @post.deleted?
+      render 'deleted'
+    end
   end
 
   def new
