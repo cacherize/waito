@@ -1,7 +1,7 @@
 <div class="postMain postContraint"> 
   <h1 class="postTitle"><%= @post.title %></h1>
   <div class="postActionLinks">
-    <% unless current_user == @post.user %>
+    <% if current_user == @post.user %>
       <%= link_to '<span class="actionIcon edit"></span> Edit Post'.html_safe, edit_post_path(@post), class: 'actionLink' %>
       <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, method: :delete, confirm: "Are you sure you want to delete this post?", class: 'actionLink deleteLink' %>
     <% else %>
@@ -9,7 +9,7 @@
       <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink' %>
     <% end %>
   </div>
-  <div class="postContent"><%= @post.description? ? @post.description : "<span class='placeholder'>No desciption</span>".html_safe %></div>
+  <div class="postContent"><%= @post.description? ? markdown(@post.description) : "<span class='placeholder'>No desciption</span>".html_safe %></div>
   <div class="postBottom">
     <div class="postTags">
       <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>
