@@ -1,0 +1,25 @@
+a.actionLink {
+  background:orange;
+  color:#fff;
+  padding:3px 5px;
+  display:inline-block;
+  border-radius:3px;
+  font-size:9pt;
+  font-weight:bold;
+  opacity:0.8;
+  &:hover {opacity:1;}
+  .actionIcon {
+    background-image:image-url('sprites/action_icons.png');
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:14px;
+    height:14px;
+    vertical-align: middle;
+  }
+  .delete {
+    background-position:-14px 0;
+  }
+  .pin {background-position:-28px 0;}
+  .report {width:18px; background-position:-42px 0;}
+}
+a.deleteLink {background:#f33;}
