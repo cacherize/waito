@@ -9,7 +9,7 @@
       <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink' %>
     <% end %>
   </div>
-  <div class="postContent"><%= @post.description %></div>
+  <div class="postContent"><%= @post.description? ? @post.description : "<span class='placeholder'>No desciption</span>".html_safe %></div>
   <div class="postBottom">
     <div class="postTags">
       <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>

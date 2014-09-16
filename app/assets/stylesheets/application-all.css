@@ -90,6 +90,7 @@ li {list-style-type:square;}
 .textLeft {text-align:left;}
 .right {float:right;}
 .left {float:left;}
+.placeholder {color:#ccc; font-style:italic;}
 hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 
 .flash {
