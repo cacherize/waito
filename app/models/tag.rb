@@ -10,4 +10,8 @@ class Tag < ActiveRecord::Base
   def to_param
     name.parameterize
   end
+
+  def self.locate_by_name(arg)
+    where("lower(name) = ?", arg.downcase).first
+  end
 end
