@@ -23,4 +23,8 @@ class TagsController < ApplicationController
 
   def update
   end
+
+  def show
+    @tag = Tag.locate_by_name(params[:id])
+  end
 end
