@@ -10,4 +10,12 @@ class Reputation < ActiveRecord::Base
 
     return rep
   end
+
+  def pos?
+    self.value > 0
+  end
+
+  def neg?
+    self.value < 0
+  end
 end
