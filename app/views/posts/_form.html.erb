@@ -8,7 +8,7 @@
     <%= form_errors_for(@post) %>
 
     <div class="formField">
-      <%= f.label :title %><span class="fieldReq"><span id="titleCharCount">150</span> characters remaining</span><br/>
+      <%= f.label :title %><span class="fieldReq"><span id="titleCharCount">150</span> characters remaining</span><br class='clear'/>
       <%= f.text_field :title, maxlength: 150 %>
     </div><br/>
 
