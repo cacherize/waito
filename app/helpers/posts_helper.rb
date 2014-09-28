@@ -20,4 +20,8 @@ module PostsHelper
 
     link_to '', path, method: :put, class: css_classes, title: title
   end
+
+  def post_reputation(votes)
+    votes.pluck(:value).inject(:+).to_i # sum votes together
+  end
 end
