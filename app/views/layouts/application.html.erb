@@ -46,6 +46,10 @@
 
     <div id="footer">
     </div>
+
+    <% unless current_user %>
+      <%= popup('/sessions/form') %>
+    <% end %>
   </div>
 </body>
 </html>
