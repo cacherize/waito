@@ -1,0 +1,15 @@
+<%= form_tag sessions_path, method: :post, class: 'form' do %>
+  <h1 class="formHeader">Account Login</h1>
+  <div class="formField"> 
+    <%= label_tag :login, 'Username/Email' %><br/>
+    <%= text_field_tag :login, params[:login], tabindex: '1' %>
+  </div><br/>
+  <div class="formField"> 
+    <%= label_tag :password %><br/>
+    <%= password_field_tag :password, '', tabindex: '2' %>
+  </div><br/>
+  <%= link_to "Forgot your password?", forgot_password_path, class: 'right' %>
+  <div class="formSubmit">
+    <%= submit_tag 'Login', tabindex: '3' %>
+  </div>
+<% end %>
