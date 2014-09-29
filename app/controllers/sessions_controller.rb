@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_filter :store_path
+  
   def new
   end
 
@@ -13,7 +15,8 @@ class SessionsController < ApplicationController
       end
 
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Successfully logged in!"
+      redirect_back_or_default(root_url)
+      flash[:notice] = "Successfully logged in!"
     else
       flash.now.alert = "Invalid login credentials"
       render :new
