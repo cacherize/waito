@@ -85,6 +85,7 @@ li {list-style-type:square;}
   background:#ddd;
 }
 
+.clear {clear:both;}
 .center {text-align:center;}
 .textRight {text-align:right;}
 .textLeft {text-align:left;}

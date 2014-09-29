@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  put 'posts/:post_id/vote', to: 'reputations#update', as: 'post_vote'
   get 'tag_add', to: 'tag_search#show', as: 'tag_add'
   get 'tag_search', to: 'tag_search#index', as: 'tag_search'
   resources :tags

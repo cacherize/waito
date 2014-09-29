@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
     if @post.deleted?
       render 'deleted'
+    else
+      @votes = @post.reputations
+      if current_user
+        @user_vote = @votes.select{|v| v.user_id == current_user.id}.first
+      end
     end
   end
 
