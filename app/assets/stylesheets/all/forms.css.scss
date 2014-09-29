@@ -81,12 +81,12 @@
       background:#f33;
       &:hover {background-color:#f66;}
     }
-     button.submitBtn, .cancelForm, input[type="submit"] {
+    button.submitBtn, .cancelForm, input[type="submit"] {
       display:inline-block;
       vertical-align: top;
       height:100%;
       color:#fff;
-      padding:0 10px;
+      padding:0 15px;
       font-size:13pt;
       font-weight:400;
       font-family:sans-serif, arial;
