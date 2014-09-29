@@ -12,4 +12,14 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
+
+  def popup(partial_path)
+    content_tag :div, class: 'popup' do
+      content_tag :div, class: 'backdrop' do
+        content_tag :div, class: 'box' do
+          render partial_path
+        end
+      end      
+    end
+  end
 end
