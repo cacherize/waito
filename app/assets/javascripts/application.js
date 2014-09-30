@@ -45,6 +45,11 @@ $(document).ready(function(){
       event.preventDefault();
     });
   }
+
+  $(".loginPopupLink").click(function(event){
+    $("#loginPopup").popup();
+    return false;
+  });
 });
 
 var timeoutFlashMessage = function() {
@@ -61,3 +66,24 @@ var timeoutFlashMessage = function() {
     }
   });
 }
+
+$.fn.popup = function() {
+  var $el, $box;
+  $el = this;
+  $box = $el.find('.box');
+  
+  $el.show();
+  $box.slideDown();
+
+  $('.boxClose, .backdrop').on('click', function(event){
+    $box.slideUp(function(){
+      $el.hide();
+    });
+
+    event.preventDefault();
+  });
+
+  $box.on('click', function(event){
+    event.stopPropagation();
+  });
+};
