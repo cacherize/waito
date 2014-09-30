@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_many :post_tags, autosave: true
   has_many :tags, through: :post_tags
   has_many :reputations, as: :reputable
+  has_many :comments, as: :commentable
   belongs_to :user
 
   validates :title, presence: true, length: {maximum: 150}

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :reputations
+  has_many :comments
 
   #=== VALIDATIONS ===#
   validates :email, presence: true, on: :create
