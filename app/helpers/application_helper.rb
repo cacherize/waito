@@ -16,10 +16,12 @@ module ApplicationHelper
   def popup(partial_path, id='popup')
     content_tag :div, class: 'popup', id: id do
       content_tag :div, class: 'backdrop' do
-        content_tag :div, class: 'box' do
-          render partial_path
+        content_tag :div, class: 'boxWrapper' do
+          content_tag :div, class: 'box' do
+            link_to('close', '', class: 'boxClose') + render(partial_path)
+          end
         end
-      end      
+      end
     end
   end
 end
