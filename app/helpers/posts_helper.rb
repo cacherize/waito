@@ -18,6 +18,10 @@ module PostsHelper
       title += ' (voted)'
     end
 
+    unless current_user
+      css_classes += " loginPopupLink"
+    end
+
     link_to '', path, method: :put, class: css_classes, title: title
   end
 
