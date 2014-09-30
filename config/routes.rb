@@ -1,5 +1,6 @@
 Waito::Application.routes.draw do
   resources :comments, only: :destroy
+  post 'comments/:comment_id/reply', to: 'comments#create', as: 'comment_reply'
   put 'posts/:post_id/vote', to: 'reputations#update', as: 'post_vote'
   get 'tag_add', to: 'tag_search#show', as: 'tag_add'
   get 'tag_search', to: 'tag_search#index', as: 'tag_search'
