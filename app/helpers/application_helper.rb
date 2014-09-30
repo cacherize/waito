@@ -24,4 +24,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def login_popup_class
+    current_user ? '' : ' loginPopupLink'
+  end
 end
