@@ -5,8 +5,8 @@
       <%= link_to '<span class="actionIcon edit"></span> Edit Post'.html_safe, edit_post_path(@post), class: 'actionLink' %>
       <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, method: :delete, confirm: "Are you sure you want to delete this post?", class: 'actionLink deleteLink' %>
     <% else %>
-      <%= link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, '', class: 'actionLink' %>
-      <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink' %>
+      <%= link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, '', class: 'actionLink'+login_popup_class %>
+      <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class %>
     <% end %>
   </div>
   <div class="postContent"><%= @post.description? ? markdown(@post.description) : "<span class='placeholder'>No desciption</span>".html_safe %></div>
