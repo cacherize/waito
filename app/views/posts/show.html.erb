@@ -12,7 +12,7 @@
   <div class="postContent"><%= @post.description? ? markdown(@post.description) : "<span class='placeholder'>No desciption</span>".html_safe %></div>
   <div class="postBottom">
     <div class="postTags">
-      <%= @post.tags.map{|tag| link_to(tag.name, tag, class: 'tagItem')}.join(' ').html_safe %>
+      <%= render(partial: 'tags/tag', collection: @post.tags) || "This post has no tags." %>
     </div>
     <div class="postRep">
       <%= voting_link(1.0, @post, @user_vote) %>
