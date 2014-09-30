@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(:version => 20140930043007) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
     t.text     "message"
     t.datetime "deleted_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "post_tags", :force => true do |t|
