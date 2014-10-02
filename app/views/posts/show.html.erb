@@ -22,8 +22,16 @@
   </div>
 
   <div class="postUser">
-    <%= link_to image_tag('default_user.png'), @post.user %>
+    <%= link_to image_tag('default_user.png', class: 'userImage'), @post.user %>
     <span class="postUsername"><%= link_to @post.user.username %></span>
   </div>
 </div>
+<hr class="dottedDivider" />
+
+<% if current_user %>
+  <div id="commentForm" class="postContraint form">
+    <%= render 'comments/comment_form' %>
+  </div>
+<% end %>
+
 <hr class="dottedDivider" />
