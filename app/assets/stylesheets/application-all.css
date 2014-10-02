@@ -14,13 +14,14 @@
  *= require_tree ./all
  */
 html, body {margin:0;padding:0;height:100%;width:100%;}
-a {
+a, .link {
   text-decoration: none;
   outline:0;
   border:0;
   color:#0ab;
+  cursor:pointer;
 }
-a:active, a:hover {color:#0cd;}
+a:active, .link:hover, a:hover {color:#0cd;}
 b {font-weight:700;}
 img {border:0; outline:0;}
 ul {padding-left:25px;}
