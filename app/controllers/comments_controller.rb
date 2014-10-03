@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+  def new
+    load_commentable
+    @comment = Comment.new
+    render partial: 'comments/reply_form'
+  end
+
   def create
     load_commentable
     @comment = @commentable.comments.new(params[:comment])
