@@ -17,7 +17,7 @@
       <div class="postContent"><%= markdown(comment.message) %></div>
       <div class="postBottom">
         <div class="commentReply">
-          <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink'  %>
+          <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
         </div>
       </div>
     </div>
@@ -27,12 +27,21 @@
 <% end %>
 <script>
 $(".sortMenu").sortMenu();
-$(".replyFormLoadLink").click(function(event){
-  var $that = $(this);
+$("#commentList").on('click', '.replyFormLoadLink', function(event){
+  var $that = $(this),
+      $constraint = $that.closest('.postComment'),
+      $container = $that.closest("#commentList"),
+      $rel = $that.attr('rel');
 
-  $.get(this.href, function(data){
-    $that.closest('.postComment').after(data);
-  });
+  $container.find(".subCommentForm").hide();
+
+  if ($constraint.find("#commentForm_"+$rel).length > 0) {
+    $constraint.find("#commentForm_"+$rel).slideDown();
+  } else {
+    $.get(this.href, function(data){
+      $constraint.after(data);
+    });
+  }
 
   event.preventDefault();
 });
