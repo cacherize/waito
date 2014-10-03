@@ -65,4 +65,9 @@
     }
   }
 }
-.subPost {padding-left:250px;}
+.subPost {
+  padding-left:250px;
+  .postUser {
+    left:100px;
+  }
+}
