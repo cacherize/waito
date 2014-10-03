@@ -1,0 +1,27 @@
+.sMenu {
+  display:inline-block;
+  position:relative;
+  ul {
+    text-align:left;
+    margin:0;
+    padding:0;
+    background:#fff;
+    border:1px solid #ddd;
+    padding:4px;
+    display:none;
+    position:absolute;
+    left:0;
+    top:100%;
+    z-index:5;
+    border-radius:4px;
+    li {
+      list-style-type:none;
+      font-size:0.85em;
+      white-space: nowrap;
+      a {
+        display:block;
+        border-radius:3px;
+      }
+    }
+  }
+}
