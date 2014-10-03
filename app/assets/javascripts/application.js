@@ -87,3 +87,30 @@ $.fn.popup = function() {
     event.stopPropagation();
   });
 };
+
+$.fn.sortMenu = function() {
+  var $menu = this, $display, $selected, $list, $wrap;
+
+  $menu.wrap("<div class='sMenu'></div>");
+  $display = $menu.parent(".sMenu");
+  
+  if ($menu.children("li.selected").length > 0) {
+    $selected = $menu.children("li.selected").first();
+  } else {
+    $selected = $menu.children("li").first();
+  };
+
+  $menu.before("<span class='sMenuSelected link' href='#'>"+$selected.text()+" \u25BE</a>");
+
+  $display.on({
+    mouseover: function(){ $menu.show() },
+    mouseleave: function(){ $menu.hide() },
+    click: function(){
+      if ($menu.is(":visible")) {
+        $menu.hide();
+      } else {
+        $menu.show();
+      }
+    }
+  });
+};
