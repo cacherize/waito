@@ -9,15 +9,17 @@
 </div>
 <% if @post.comments.present? %>  
   <% @post.comments.each do |comment| %>
-    <div class="postComment postConstraint"> 
-      <div class="postUser">
-        <%= link_to image_tag('default_user.png', class: 'userImageMed'), comment.user %>
-        <span class="postUsername"><%= link_to comment.user.username %></span>
-      </div>
-      <div class="postContent"><%= markdown(comment.message) %></div>
-      <div class="postBottom">
-        <div class="commentReply">
-          <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
+    <div class="comment">
+      <div class="postComment postConstraint"> 
+        <div class="postUser">
+          <%= link_to image_tag('default_user.png', class: 'userImageMed'), comment.user %>
+          <span class="postUsername"><%= link_to comment.user.username %></span>
+        </div>
+        <div class="postContent"><%= markdown(comment.message) %></div>
+        <div class="postBottom">
+          <div class="commentReply">
+            <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
+          </div>
         </div>
       </div>
     </div>
@@ -35,8 +37,8 @@ $("#commentList").on('click', '.replyFormLoadLink', function(event){
 
   $container.find(".subCommentForm").hide();
 
-  if ($constraint.find("#commentForm_"+$rel).length > 0) {
-    $constraint.find("#commentForm_"+$rel).slideDown();
+  if ($("#commentForm_"+$rel).length > 0) {
+    $("#commentForm_"+$rel).slideDown();
   } else {
     $.get(this.href, function(data){
       $constraint.after(data);
