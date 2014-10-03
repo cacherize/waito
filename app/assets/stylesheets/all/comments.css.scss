@@ -1,4 +1,4 @@
-#commentForm {
+#commentForm, .subCommentForm {
   display:block;
   margin:15px 0 20px;
   .formField {
@@ -8,9 +8,10 @@
   .formSubmit {
     padding:0;
     height:40px;
-    input {line-height:40px; font-size:11pt;}
+    input[type="submit"]  {line-height:40px; font-size:11pt;}
   }
 }
+.subCommentForm {margin-top:0;}
 #commentList {
   margin:30px 0 80px 0;
   #commentListDetails {text-align:right;}
@@ -19,27 +20,32 @@
     margin:15px 0;
     padding:0 0 0 150px;
     .postUser {top:0;}
-  }
-  .postContent {
-    display:block;
-    margin:0;
-    border:1px solid #ddd;
-    min-height:100%;
-    position:relative;
-    background:#f8f8f8;
-    border-radius:4px;
-    p {margin:0; padding:10px;}
-    &:after, &:before {
-      position:absolute;
-      right:100%;
-      top:10px;
-      content: ' ';
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 20px 20px 0;
-      border-color: transparent #ddd transparent transparent;
+    .postContent {
+      display:block;
+      margin:0;
+      border:1px solid #ddd;
+      min-height:100%;
+      position:relative;
+      background:#f8f8f8;
+      border-radius:4px;
+      p {margin:0; padding:10px;}
+      &:after, &:before {
+        position:absolute;
+        right:100%;
+        top:10px;
+        content: ' ';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 20px 20px 0;
+        border-color: transparent #ddd transparent transparent;
+      }
+      &:after {border-width: 0 18px 18px 0; border-color:transparent #f8f8f8 transparent transparent; margin-top:1px;}
     }
-    &:after {border-width: 0 18px 18px 0; border-color:transparent #f8f8f8 transparent transparent; margin-top:1px;}
+    .postBottom {
+      .commentReply {
+        font-size:0.85em;
+      }
+    }
   }
 }
