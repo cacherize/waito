@@ -1,4 +1,4 @@
-<div class="postMain postContraint"> 
+<div class="postMain postConstraint"> 
   <h1 class="postTitle"><%= @post.title %></h1>
   <div class="postActionLinks">
     <% if current_user == @post.user %>
@@ -29,7 +29,7 @@
 <hr class="dottedDivider" />
 
 <% if current_user %>
-  <div id="commentForm" class="postContraint form">
+  <div id="commentForm" class="postConstraint form">
     <%= render 'comments/comment_form' %>
   </div>
 <% end %>
