@@ -1,4 +1,12 @@
-<div id="commentListDetails"><b><%= pluralize(@post.comments.size, "comment") %> total</b> | Sort by: </div>
+<div id="commentListDetails">
+  <b><%= pluralize(@post.comments.size, "comment") %> total</b> | 
+  Sort by: 
+  <ul class="sortMenu">
+    <% Comment::SORT_OPTIONS.each do |sort_face, sort_value| %>
+      <li class="<%= 'selected' if params[:comment_sort] == sort_value %>"><%= link_to sort_face, params.merge(comment_sort: sort_value) %></li>
+    <% end %>
+  </ul>
+</div>
 <% if @post.comments.present? %>  
   <% @post.comments.each do |comment| %>
     <div class="postComment postContraint"> 
@@ -12,3 +20,6 @@
 <% else %>
   <i>No Comments</i>
 <% end %>
+<script>
+$(".sortMenu").sortMenu();
+</script>
