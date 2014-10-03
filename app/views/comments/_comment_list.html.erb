@@ -22,6 +22,17 @@
           </div>
         </div>
       </div>
+      <div class="postSubcomments">
+        <% comment.comments.each do |c| %>
+          <div class="subPost postComment postConstraint"> 
+            <div class="postUser">
+              <%= link_to image_tag('default_user.png', class: 'userImageMed'), c.user %>
+              <span class="postUsername"><%= link_to c.user.username %></span>
+            </div>
+            <div class="postContent"><%= markdown(c.message) %></div>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 <% else %>

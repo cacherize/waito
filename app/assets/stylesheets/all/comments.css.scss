@@ -11,14 +11,12 @@
     input[type="submit"]  {line-height:40px; font-size:11pt;}
   }
 }
-.subCommentForm {margin-top:0;}
 #commentList {
   margin:30px 0 80px 0;
   #commentListDetails {text-align:right;}
   .postComment {
     min-height:100px;
     margin:15px 0;
-    padding:0 0 0 150px;
     .postUser {top:0;}
     .postContent {
       display:block;
