@@ -25,7 +25,7 @@
       </div>
       <% if replies.present? %>
         <div class="postSubcomments">
-          <div class="postSubcommentsDetail"><b><%= pluralize(replies.size, "reply") %></b> | <%= link_to "Hide Replies" %></div>
+          <div class="postSubcommentsDetail"><b><%= pluralize(replies.size, "reply") %> total</b> | <%= link_to "Hide replies" %></div>
           <% replies.each do |c| %>
             <div class="postComment postConstraint"> 
               <div class="postUser">
