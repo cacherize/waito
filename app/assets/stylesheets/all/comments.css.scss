@@ -1,0 +1,48 @@
+#commentList {
+  margin:30px 0 80px 0;
+  #commentListDetails {text-align:right;}
+  .comment {
+    margin-bottom:20px;
+    .postComment {
+      min-height:100px;
+      margin:0;
+      .postUser {top:0;}
+      .postContent {
+        display:block;
+        margin:0;
+        border:1px solid #ddd;
+        min-height:100%;
+        position:relative;
+        background:#f8f8f8;
+        border-radius:4px;
+        p {margin:0; padding:10px;}
+        &:after, &:before {
+          position:absolute;
+          right:100%;
+          top:10px;
+          content: ' ';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 20px 20px 0;
+          border-color: transparent #ddd transparent transparent;
+        }
+        &:after {border-width: 0 18px 18px 0; border-color:transparent #f8f8f8 transparent transparent; margin-top:1px;}
+      }
+      .postBottom {
+        .commentReply {
+          font-size:10.5pt;
+        }
+      }
+    }
+    .postSubcomments {
+      padding-left:125px;
+      margin-top:15px;
+      .postSubcommentsDetail {
+        font-size:10.5pt;
+        text-align:right;
+      }
+      .postComment {margin-top:10px;}
+    }
+  }
+}

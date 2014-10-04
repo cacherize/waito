@@ -1,0 +1,44 @@
+<div id="commentListDetails">
+  <b><%= pluralize(@post.comments.size, "comment") %> total</b> | 
+  Sort by: 
+  <ul class="sortMenu">
+    <% Comment::SORT_OPTIONS.each do |sort_face, sort_value| %>
+      <li class="<%= 'selected' if params[:comment_sort] == sort_value %>"><%= link_to sort_face, params.merge(comment_sort: sort_value) %></li>
+    <% end %>
+  </ul>
+</div>
+<% if @post.comments.present? %>  
+  <% @post.comments.each do |comment| %>
+    <% replies = comment.comments %>
+    <div class="comment">
+      <div class="postComment postConstraint"> 
+        <div class="postUser">
+          <%= link_to image_tag('default_user.png', class: 'userImageMed'), comment.user %>
+          <span class="postUsername"><%= link_to comment.user.username %></span>
+        </div>
+        <div class="postContent"><%= markdown(comment.message) %></div>
+        <div class="postBottom">
+          <div class="commentReply">
+            <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
+          </div>
+        </div>
+      </div>
+      <% if replies.present? %>
+        <div class="postSubcomments">
+          <div class="postSubcommentsDetail"><b><%= pluralize(replies.size, "reply") %> total</b> | <%= link_to "Hide replies" %></div>
+          <% replies.each do |c| %>
+            <div class="postComment postConstraint"> 
+              <div class="postUser">
+                <%= link_to image_tag('default_user.png', class: 'userImageMed'), c.user %>
+                <span class="postUsername"><%= link_to c.user.username %></span>
+              </div>
+              <div class="postContent"><%= markdown(c.message) %></div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <i>No Comments</i>
+<% end %>

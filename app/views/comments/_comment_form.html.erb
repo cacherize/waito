@@ -1,0 +1,17 @@
+<div class="postUser">
+  <div class="formField">
+    <%= label_tag '', '&nbsp;'.html_safe %><br/>
+    <%= link_to image_tag('default_user.png', class: 'userImageMed'), current_user %>
+    <span class="postUsername"><%= link_to @post.user.username %></span>
+  </div>
+</div>
+<%= form_for [@post, Comment.new] do |f| %>
+  <div class="formField">
+    <b><%= f.label :message, 'Leave a comment' %></b><br/>
+    <%= f.text_area :message %>
+  </div>
+
+  <div class="formSubmit">
+    <%= f.submit 'Add Comment' %>
+  </div>
+<% end %>
