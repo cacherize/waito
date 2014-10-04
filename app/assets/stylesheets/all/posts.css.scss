@@ -65,3 +65,17 @@
     }
   }
 }
+#commentForm, .subCommentForm {
+  display:block;
+  margin:15px 0 20px;
+  .formField {
+    display:block;
+    textarea {width:98%; height:150px; padding: 4px;}
+  }
+  .formSubmit {
+    padding:0;
+    height:40px;
+    input[type="submit"]  {line-height:40px; font-size:11pt;}
+  }
+}
+.subCommentForm {margin:0 0 10px;}

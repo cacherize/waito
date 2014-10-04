@@ -2,7 +2,7 @@ $(document).ready(function(){
   $(".sortMenu").sortMenu();
   $("#commentList").on('click', '.replyFormLoadLink', function(event){
     var $that = $(this),
-        $constraint = $that.closest('.postComment'),
+        $comment = $that.closest('.comment'),
         $container = $that.closest("#commentList"),
         $rel = $that.attr('rel');
 
@@ -12,7 +12,11 @@ $(document).ready(function(){
       $("#commentForm_"+$rel).slideDown();
     } else {
       $.get(this.href, function(data){
-        $constraint.after(data);
+        if ($comment.children('.postSubcomments').length > 0) {
+          $comment.children('.postSubcomments').prepend(data);
+        } else {
+          $comment.append("<div class='postSubcomments'>"+data+"</div>");
+        }
       });
     }
 

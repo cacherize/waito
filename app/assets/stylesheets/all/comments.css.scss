@@ -1,23 +1,11 @@
-#commentForm, .subCommentForm {
-  display:block;
-  margin:15px 0 20px;
-  .formField {
-    display:block;
-    textarea {width:98%; height:150px; padding: 4px;}
-  }
-  .formSubmit {
-    padding:0;
-    height:40px;
-    input[type="submit"]  {line-height:40px; font-size:11pt;}
-  }
-}
 #commentList {
   margin:30px 0 80px 0;
   #commentListDetails {text-align:right;}
   .comment {
+    margin-bottom:20px;
     .postComment {
       min-height:100px;
-      margin:15px 0;
+      margin:0;
       .postUser {top:0;}
       .postContent {
         display:block;
@@ -43,10 +31,17 @@
       }
       .postBottom {
         .commentReply {
-          font-size:0.85em;
+          font-size:10.5pt;
         }
       }
     }
-    .postSubcomments {padding-left:125px;}
+    .postSubcomments {
+      padding-left:150px;
+      margin-top:15px;
+      .postSubcommentsDetail {
+        font-size:10.5pt;
+      }
+      .postComment {margin-top:10px;}
+    }
   }
 }
