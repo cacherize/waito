@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  $(".sortMenu").sortMenu();
   $("#commentList").on('click', '.replyFormLoadLink', function(event){
     var $that = $(this),
         $comment = $that.closest('.comment'),
@@ -23,3 +22,14 @@ $(document).ready(function(){
     event.preventDefault();
   });
 });
+
+var loadPostComments = function(){
+  console.log('test')
+  var $target = $("#commentList");
+
+  $.get($target.attr("rel"), function(data){
+    $target.append(data);
+  }).done(function(){
+    $(".sortMenu").sortMenu();
+  });
+}

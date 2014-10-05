@@ -1,5 +1,5 @@
 <div id="commentListDetails">
-  <b><%= pluralize(@post.comments.size, "comment") %> total</b> | 
+  <b><%= pluralize(@comments.size, "comment") %> total</b> | 
   Sort by: 
   <ul class="sortMenu">
     <% Comment::SORT_OPTIONS.each do |sort_face, sort_value| %>
@@ -7,8 +7,8 @@
     <% end %>
   </ul>
 </div>
-<% if @post.comments.present? %>  
-  <% @post.comments.each do |comment| %>
+<% if @comments.present? %>  
+  <% @comments.each do |comment| %>
     <% replies = comment.comments %>
     <div class="comment">
       <div class="postComment postConstraint"> 
