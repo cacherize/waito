@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+  def index
+    load_commentable
+    @comments = Comment.filter_comments(@commentable, params[:comment_sort])
+
+    render partial: 'comments/comment_list'
+  end
+
   def new
     load_commentable
     @comment = Comment.new
