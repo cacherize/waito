@@ -7,7 +7,7 @@ Waito::Application.routes.draw do
   get 'tag_search', to: 'tag_search#index', as: 'tag_search'
   resources :tags
   resources :posts do
-    resources :comments, only: :create
+    resources :comments, only: [:create, :index]
   end
 
   get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
