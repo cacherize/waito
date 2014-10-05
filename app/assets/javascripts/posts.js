@@ -53,3 +53,7 @@ var collapseSubcomments = function(link){
   $subcomments.slideToggle();
   $(link).text(text);
 }
+
+var closeReplyForm = function(link){
+  $(link).closest(".subCommentForm").slideUp();
+}

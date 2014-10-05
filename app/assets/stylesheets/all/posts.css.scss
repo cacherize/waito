@@ -77,7 +77,7 @@
   .formSubmit {
     padding:0;
     height:40px;
-    input[type="submit"]  {line-height:40px; font-size:11pt;}
+    input[type="submit"], .cancelForm  {line-height:40px; font-size:11pt;}
   }
 }
 .subCommentForm {margin:0 0 10px;}

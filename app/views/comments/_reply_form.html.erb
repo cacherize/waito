@@ -15,6 +15,7 @@
     
     <div class="formSubmit">
       <%= f.submit 'Add Comment' %>
+      <%= link_to 'Cancel', 'javascript:void(0)', onclick: 'closeReplyForm(this);', class: 'cancelForm' %>
     </div>
   <% end %>
 </div>
