@@ -25,16 +25,18 @@
       </div>
       <% if replies.present? %>
         <div class="postSubcomments">
-          <div class="postSubcommentsDetail"><b><%= pluralize(replies.size, "reply") %> total</b> | <%= link_to "Hide replies" %></div>
-          <% replies.each do |c| %>
-            <div class="postComment postConstraint"> 
-              <div class="postUser">
-                <%= link_to image_tag('default_user.png', class: 'userImageMed'), c.user %><br/>
-                <span class="postUsername"><%= link_to c.user.username %></span>
+          <div class="postSubcommentsDetail"><p><b><%= pluralize(replies.size, "reply") %> total</b> | <%= link_to "Hide replies", 'javascript:void(0);', onclick: 'collapseSubcomments(this);' %></p></div>
+          <div class="subcommentList">
+            <% replies.each do |c| %>
+              <div class="postComment postConstraint"> 
+                <div class="postUser">
+                  <%= link_to image_tag('default_user.png', class: 'userImageMed'), c.user %><br/>
+                  <span class="postUsername"><%= link_to c.user.username %></span>
+                </div>
+                <div class="postContent"><%= markdown(c.message) %></div>
               </div>
-              <div class="postContent"><%= markdown(c.message) %></div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

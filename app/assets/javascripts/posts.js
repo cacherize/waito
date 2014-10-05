@@ -42,3 +42,14 @@ var loadPostComments = function(){
     event.preventDefault();
   });
 }
+
+var collapseSubcomments = function(link){
+  var $parent, $subcomments, text; 
+
+  $parent = $(link).parent("p");
+  $subcomments = $parent.closest(".postSubcomments").children(".subcommentList");
+  text = $subcomments.is(':visible') ? 'Show replies' : 'Hide replies';
+
+  $subcomments.slideToggle();
+  $(link).text(text);
+}

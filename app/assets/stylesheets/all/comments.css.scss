@@ -42,6 +42,20 @@
       .postSubcommentsDetail {
         font-size:10.5pt;
         text-align:right;
+        position:relative;
+        margin-left:25px;
+        p {margin:0; display:inline-block; background:#fff; padding-left:10px;}
+        &:before {
+          position:absolute;
+          content:" ";
+          left:0;
+          top:0;
+          height:50%;
+          width:100%;
+          border-left:1px dotted #ccc;
+          border-bottom:1px dotted #ccc;
+          z-index:-1;
+        }
       }
       .postComment {margin-top:10px;}
     }
