@@ -24,12 +24,21 @@ $(document).ready(function(){
 });
 
 var loadPostComments = function(){
-  console.log('test')
   var $target = $("#commentList");
 
   $.get($target.attr("rel"), function(data){
     $target.append(data);
   }).done(function(){
     $(".sortMenu").sortMenu();
+  });
+
+  $target.on('click', '.sortMenu li a', function(event){
+    $.get(this.href, function(data){
+      $target.html(data)
+    }).done(function(){
+      $(".sortMenu").sortMenu();
+    });
+
+    event.preventDefault();
   });
 }
