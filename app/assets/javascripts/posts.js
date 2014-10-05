@@ -16,8 +16,11 @@ $(document).ready(function(){
         } else {
           $comment.append("<div class='postSubcomments'>"+data+"</div>");
         }
+      }).done(function(){
+        $("#commentForm_"+$rel).slideDown();
       });
     }
+    
 
     event.preventDefault();
   });
