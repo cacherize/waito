@@ -21,6 +21,11 @@
           <div class="commentReply">
             <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
           </div>
+          <div class="postRep">
+            <%= link_to '', '', class: 'like' %>
+            <p class="repCount">1212</p>
+            <%= link_to '', '', class: 'dislike' %>
+          </div>
         </div>
       </div>
       <% if replies.present? %>

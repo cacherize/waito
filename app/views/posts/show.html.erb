@@ -16,7 +16,7 @@
     </div>
     <div class="postRep">
       <%= voting_link(1.0, @post, @user_vote) %>
-      <p id="repCount"><%= post_reputation(@votes) %></p>
+      <p class="repCount"><%= post_reputation(@votes) %></p>
       <%= voting_link(-1.0, @post, @user_vote) %>
     </div>
   </div>
