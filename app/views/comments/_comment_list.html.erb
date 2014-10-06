@@ -39,6 +39,13 @@
                   <span class="postUsername"><%= link_to c.user.username %></span>
                 </div>
                 <div class="postContent"><%= markdown(c.message) %></div>
+                <div class="postBottom">
+                  <div class="postRep">
+                    <%= link_to '', '', class: 'like' %>
+                    <p class="repCount">1212</p>
+                    <%= link_to '', '', class: 'dislike' %>
+                  </div>
+                </div>
               </div>
             <% end %>
           </div>
