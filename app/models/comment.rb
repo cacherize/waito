@@ -11,17 +11,20 @@ class Comment < ActiveRecord::Base
     "Oldest First" => "oldest"
   }
 
-  def self.filter_comments(commentable, sort=nil)
+  def self.load_comments(commentable, pagination, sort=nil)
     sort = "top" unless sort && SORT_OPTIONS.values.include?(sort)
-    
+    comments = commentable.comments
+
     case sort
     when "recent"
-      comments = commentable.comments.order('created_at DESC')
+      comments = comments.order('created_at DESC')
     when "oldest"
-      comments = commentable.comments.order('created_at ASC')
+      comments = comments.order('created_at ASC')
     else
-      comments = commentable.comments
+      comments = comments
     end
+
+    comments = comments.page(pagination).per(5)
 
     comments
   end

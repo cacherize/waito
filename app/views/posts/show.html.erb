@@ -36,6 +36,17 @@
 
 <hr class="dottedDivider" />
 
-<div id="commentList" rel="<%= post_comments_path(@post) %>"><!-- AJAX render --></div>
+<div id="commentList" rel="<%= post_comments_path(@post) %>">
+  <div id="commentListDetails">
+    <b><%= pluralize(1, "comment") %> total</b> | 
+    Sort by: 
+    <ul class="sortMenu">
+      <% Comment::SORT_OPTIONS.each do |sort_face, sort_value| %>
+        <li class="<%= 'selected' if params[:comment_sort] == sort_value %>"><%= link_to sort_face, params.merge(comment_sort: sort_value) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- AJAX render -->
+</div>
 <%= javascript_include_tag params[:controller] %>
 <script>loadPostComments()</script>
