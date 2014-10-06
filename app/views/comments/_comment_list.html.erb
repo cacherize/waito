@@ -22,9 +22,9 @@
             <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
           </div>
           <div class="postRep">
-            <%= link_to '', '', class: 'like' %>
-            <p class="repCount">1212</p>
-            <%= link_to '', '', class: 'dislike' %>
+            <%= link_to '', comment_vote_path(comment, rep_val: 1.0), method: :put, class: 'like' %>
+            <p class="repCount"><%= post_reputation(comment.reputations) %></p>
+            <%= link_to '', comment_vote_path(comment, rep_val: -1.0), method: :pit, class: 'dislike' %>
           </div>
         </div>
       </div>
@@ -41,9 +41,9 @@
                 <div class="postContent"><%= markdown(c.message) %></div>
                 <div class="postBottom">
                   <div class="postRep">
-                    <%= link_to '', '', class: 'like' %>
-                    <p class="repCount">1212</p>
-                    <%= link_to '', '', class: 'dislike' %>
+                    <%= link_to '', comment_vote_path(c, rep_val: 1.0), method: :put, class: 'like' %>
+                    <p class="repCount"><%= post_reputation(c.reputations) %></p>
+                    <%= link_to '', comment_vote_path(c, rep_val: -1.0), method: :pit, class: 'dislike' %>
                   </div>
                 </div>
               </div>
