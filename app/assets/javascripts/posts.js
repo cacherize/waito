@@ -29,7 +29,9 @@ $(document).ready(function(){
 var loadPostComments = function(){
   var $target = $("#commentList");
 
-  $.get($target.attr("rel")).done(function(){
+  $.get($target.attr("rel"), {full_load: true}, function(data){
+    $target.html(data);
+  }).done(function(){
     $(".sortMenu").sortMenu();
     $("#commentList .comment").infinitescroll({
       navSelector: "nav.pagination",
@@ -39,8 +41,15 @@ var loadPostComments = function(){
   });
 
   $target.on('click', '.sortMenu li a', function(event){
-    $.get(this.href).done(function(){
+    $.get(this.href, {full_load: true}, function(data){
+      $target.html(data);
+    }).done(function(){
       $(".sortMenu").sortMenu();
+        $("#commentList .comment").infinitescroll({
+        navSelector: "nav.pagination",
+        nextSelector: "nav.pagination a[rel=next]",
+        itemSelector: "#commentList .comment"
+      });
     });
 
     event.preventDefault();

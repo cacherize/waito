@@ -1,7 +1,7 @@
 class LoadComments
-  attr_accessor :conjoined_comments, :comments
+  attr_accessor :conjoined_comments, :comments, :total
   def initialize(commentable, user, pagination, sort=nil)
-    sort = "top" unless sort && SORT_OPTIONS.values.include?(sort)
+    sort = "top" unless sort && Comment::SORT_OPTIONS.values.include?(sort)
     @user = user
     @commentable = commentable
     @comments = load_comments(pagination, sort)
@@ -13,6 +13,7 @@ class LoadComments
 
   def load_comments(pagination, sort)
     comments = @commentable.comments
+    @total = comments.size
 
     case sort
     when "recent"
@@ -63,13 +64,13 @@ class LoadComments
     end
 
     @comments.each do |c|
-      rep_value = @reputations.select{|r| r.reputable_id == c.id}.inject(:+) || 0
+      rep_value = @reputations.select{|r| r.reputable_id == c.id}.map(&:value).inject(:+) || 0
       replies = @replies.select{|r| r.commentable_id == c.id}
 
       @conjoined_replies = {}
 
       replies.each do |r|
-        rep_value = @reputations.select{|r| r.reputable_id == r.id}.inject(:+) || 0
+        rep_value = @reputations.select{|r| r.reputable_id == r.id}.map(&:value).inject(:+) || 0
         user = @users.select{|u| u.id == c.user_id}.first
 
         if @user_reps
