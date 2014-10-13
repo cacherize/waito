@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   def index
     load_commentable
-    @comments = Comment.load_comments(@commentable, params[:page], params[:comment_sort])
+    load_comments = LoadComments.new(@commentable, current_user, params[:page], params[:comment_sort])
+    @comments = load_comments.comments
+    @conjoined_comments = load_comments.conjoined_comments
   end
 
   def new

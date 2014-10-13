@@ -1,11 +1,10 @@
-<% if @comments.present? %>  
-  <% @comments.each do |comment| %>
-    <% replies = comment.comments %>
+<% if @conjoined_comments.present? %>  
+  <% @conjoined_comments.each do |comment, details| %>
     <div class="comment">
       <div class="postComment postConstraint"> 
         <div class="postUser">
-          <%= link_to image_tag('default_user.png', class: 'userImageMed'), comment.user %><br/>
-          <span class="postUsername"><%= link_to comment.user.username %></span>
+          <%= link_to image_tag('default_user.png', class: 'userImageMed'), details[:user] %><br/>
+          <span class="postUsername"><%= link_to details[:user].username %></span>
         </div>
         <div class="postContent"><%= markdown(comment.message) %></div>
         <div class="postBottom">
@@ -14,26 +13,31 @@
           </div>
           <div class="postRep">
             <%= link_to '', comment_vote_path(comment, rep_val: 1.0), method: :put, class: 'like' %>
-            <p class="repCount"><%= post_reputation(comment.reputations) %></p>
+            <p class="repCount"><%= details[:reputation] %></p>
             <%= link_to '', comment_vote_path(comment, rep_val: -1.0), method: :put, class: 'dislike' %>
           </div>
         </div>
       </div>
-      <% if replies.present? %>
+      <% if details[:replies].present? %>
         <div class="postSubcomments">
-          <div class="postSubcommentsDetail"><p><b><%= pluralize(replies.size, "reply") %> total</b> | <%= link_to "Hide replies", 'javascript:void(0);', onclick: 'collapseSubcomments(this);' %></p></div>
+          <div class="postSubcommentsDetail">
+            <p>
+              <b><%= pluralize(details[:replies].size, "reply") %> total</b> |
+              <%= link_to "Hide replies", 'javascript:void(0);', onclick: 'collapseSubcomments(this);' %>
+            </p>
+          </div>
           <div class="subcommentList">
-            <% replies.each do |c| %>
+            <% details[:replies].each do |c, details| %>
               <div class="postComment postConstraint"> 
                 <div class="postUser">
-                  <%= link_to image_tag('default_user.png', class: 'userImageMed'), c.user %><br/>
-                  <span class="postUsername"><%= link_to c.user.username %></span>
+                  <%= link_to image_tag('default_user.png', class: 'userImageMed'), details[:user] %><br/>
+                  <span class="postUsername"><%= link_to details[:user].username %></span>
                 </div>
                 <div class="postContent"><%= markdown(c.message) %></div>
                 <div class="postBottom">
                   <div class="postRep">
                     <%= link_to '', comment_vote_path(c, rep_val: 1.0), method: :put, class: 'like' %>
-                    <p class="repCount"><%= post_reputation(c.reputations) %></p>
+                    <p class="repCount"><%= details[:reputation] %></p>
                     <%= link_to '', comment_vote_path(c, rep_val: -1.0), method: :put, class: 'dislike' %>
                   </div>
                 </div>
