@@ -29,7 +29,6 @@ class LoadComments
 
     if comments.kind_of?(ActiveRecord)
       comments = comments.page(pagination).per(5)
-      @comment_ids = comments.pluck(:id)
     else
       comments = Kaminari.paginate_array(comments).page(pagination).per(5)
     end
@@ -46,12 +45,12 @@ class LoadComments
   end
 
   def load_reputations
-    @reply_ids ||= []
-    @comment_ids ||= []
     @comment_reps ||= []
+    @reply_ids ||= @replies.map(&:id)
+    @comment_ids = @comments.map(&:id) - @comment_reps.map(&:id)
     reputable_ids = @comment_ids + @reply_ids
 
-    reps = @comment_reps + Reputation.where(reputable_type: 'Comment').where(reputable_id: reputable_ids)
+    reps = Reputation.where(reputable_type: 'Comment').where(reputable_id: reputable_ids)
     return reps
   end
 
@@ -64,17 +63,16 @@ class LoadComments
     end
 
     @comments.each do |c|
-      rep_value = @reputations.select{|r| r.reputable_id == c.id}.map(&:value).inject(:+) || 0
+      rep_value = @reputations.select{|rep| rep.reputable_id == c.id}.map(&:value).inject(:+) || 0
       replies = @replies.select{|r| r.commentable_id == c.id}
-
       @conjoined_replies = {}
 
       replies.each do |r|
-        rep_value = @reputations.select{|r| r.reputable_id == r.id}.map(&:value).inject(:+) || 0
+        rep_value = @reputations.select{|rep| rep.reputable_id == r.id}.map(&:value).inject(:+) || 0
         user = @users.select{|u| u.id == c.user_id}.first
 
         if @user_reps
-          user_rep = @user_reps.select{|r| r.reputable_id == r.id}
+          user_rep = @user_reps.select{|rep| rep.reputable_id == r.id}
         end
 
         @conjoined_replies.merge!(r => {reputation: rep_value, user_rep: user_rep, user: user})
