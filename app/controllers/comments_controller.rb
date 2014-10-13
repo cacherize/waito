@@ -5,12 +5,6 @@ class CommentsController < ApplicationController
     @comments = load_comments.comments
     @conjoined_comments = load_comments.conjoined_comments
     @total = load_comments.total
-
-    if params[:full_load]
-      render partial: 'comments/comments'
-    else
-      render partial: 'comments/comment_list'
-    end
   end
 
   def new

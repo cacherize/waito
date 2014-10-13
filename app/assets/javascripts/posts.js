@@ -28,31 +28,23 @@ $(document).ready(function(){
 
 var loadPostComments = function(){
   var $target = $("#commentList");
+  renderComments($target.attr("rel"));
 
-  $.get($target.attr("rel"), {full_load: true}, function(data){
-    $target.html(data);
-  }).done(function(){
+  $target.on('click', '.sortMenu li a', function(event){
+    renderComments(this.href);
+
+    event.preventDefault();
+  });
+}
+
+var renderComments = function(url){
+  $.get(url, {full_load: true}).done(function(){
     $(".sortMenu").sortMenu();
     $("#commentList .comment").infinitescroll({
       navSelector: "nav.pagination",
       nextSelector: "nav.pagination a[rel=next]",
       itemSelector: "#commentList .comment"
     });
-  });
-
-  $target.on('click', '.sortMenu li a', function(event){
-    $.get(this.href, {full_load: true}, function(data){
-      $target.html(data);
-    }).done(function(){
-      $(".sortMenu").sortMenu();
-        $("#commentList .comment").infinitescroll({
-        navSelector: "nav.pagination",
-        nextSelector: "nav.pagination a[rel=next]",
-        itemSelector: "#commentList .comment"
-      });
-    });
-
-    event.preventDefault();
   });
 }
 
