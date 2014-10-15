@@ -40,7 +40,7 @@ var loadPostComments = function(){
 var renderComments = function(url){
   $.get(url, {full_load: true}).done(function(){
     $(".sortMenu").sortMenu();
-    $("#commentList .comment").infinitescroll({
+    $("#commentList .commentPage").infinitescroll({
       navSelector: "nav.pagination",
       nextSelector: "nav.pagination a[rel=next]",
       itemSelector: "#commentList .comment"

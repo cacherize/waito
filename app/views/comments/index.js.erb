@@ -1,5 +1,5 @@
 <% if params[:full_load] %>
   $("#commentList").html("<%= escape_javascript(render('comments')) %>"); 
 <% else %>
-  $("#commentList").append("<%= escape_javascript(render('comment_list')) %>"); 
+  $("#commentList").append("<div class='commentPage'><%= escape_javascript(render('comment_list')) %></div>"); 
 <% end %>
