@@ -38,14 +38,7 @@ var loadPostComments = function(){
 }
 
 var renderComments = function(url){
-  $.get(url, {full_load: true}).done(function(){
-    $(".sortMenu").sortMenu();
-    $("#commentList .commentPage").infinitescroll({
-      navSelector: "nav.pagination",
-      nextSelector: "nav.pagination a[rel=next]",
-      itemSelector: "#commentList .comment"
-    });
-  });
+  $.get(url);
 }
 
 var collapseSubcomments = function(link){

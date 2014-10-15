@@ -10,4 +10,4 @@
 <div class="commentPage">
   <%= render 'comment_list' %>
 </div>
-<%= paginate @comments %>
+<%= paginate @comments, remote: true %>

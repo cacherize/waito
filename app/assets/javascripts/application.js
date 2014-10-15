@@ -16,7 +16,6 @@
 //= require parsley.min
 //= require parsley.i18n.en
 //= require select2
-//= require jquery.infinitescroll
 
 $(document).ready(function(){
   $("#logoLink").hover(function(){

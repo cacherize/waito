@@ -5,6 +5,10 @@ class CommentsController < ApplicationController
     @comments = load_comments.comments
     @conjoined_comments = load_comments.conjoined_comments
     @total = load_comments.total
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new
