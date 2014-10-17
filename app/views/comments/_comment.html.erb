@@ -5,6 +5,12 @@
   </div>
   <div class="postContent"><%= markdown(comment.message) %></div>
   <div class="postBottom">
+    <div class="commentDatestamp">
+      <%= displayed_datestamp(comment.created_at) %>
+      <% if root_comment %>
+        <span> | </span>
+      <% end %>
+    </div>
     <% if root_comment %>
       <div class="commentReply">
         <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>

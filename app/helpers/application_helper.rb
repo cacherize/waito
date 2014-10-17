@@ -28,4 +28,8 @@ module ApplicationHelper
   def login_popup_class
     current_user ? '' : ' loginPopupLink'
   end
+
+  def displayed_datestamp(datetime)
+    distance_of_time_in_words_to_now(datetime) + " ago"
+  end
 end
