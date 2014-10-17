@@ -1,0 +1,13 @@
+<div id="commentListDetails">
+  <b><%= pluralize(@total, "comment") %> total</b> | 
+  Sort by: 
+  <ul class="sortMenu">
+    <% Comment::SORT_OPTIONS.each do |sort_face, sort_value| %>
+      <li class="<%= 'selected' if params[:comment_sort] == sort_value %>"><%= link_to sort_face, params.merge(comment_sort: sort_value) %></li>
+    <% end %>
+  </ul>
+</div>
+<div class="commentPage">
+  <%= render 'comment_list' %>
+</div>
+<%= paginate @comments, remote: true %>

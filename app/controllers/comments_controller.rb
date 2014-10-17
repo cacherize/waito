@@ -1,9 +1,14 @@
 class CommentsController < ApplicationController
   def index
     load_commentable
-    @comments = Comment.filter_comments(@commentable, params[:comment_sort])
+    load_comments = LoadComments.new(@commentable, current_user, params[:page], params[:comment_sort])
+    @comments = load_comments.comments
+    @conjoined_comments = load_comments.conjoined_comments
+    @total = load_comments.total
 
-    render partial: 'comments/comment_list'
+    respond_to do |format|
+      format.js
+    end
   end
 
   def new

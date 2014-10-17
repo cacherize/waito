@@ -28,22 +28,17 @@ $(document).ready(function(){
 
 var loadPostComments = function(){
   var $target = $("#commentList");
-
-  $.get($target.attr("rel"), function(data){
-    $target.append(data);
-  }).done(function(){
-    $(".sortMenu").sortMenu();
-  });
+  renderComments($target.attr("rel"));
 
   $target.on('click', '.sortMenu li a', function(event){
-    $.get(this.href, function(data){
-      $target.html(data)
-    }).done(function(){
-      $(".sortMenu").sortMenu();
-    });
+    renderComments(this.href);
 
     event.preventDefault();
   });
+}
+
+var renderComments = function(url){
+  $.get(url);
 }
 
 var collapseSubcomments = function(link){

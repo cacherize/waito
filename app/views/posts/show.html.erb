@@ -16,7 +16,7 @@
     </div>
     <div class="postRep">
       <%= voting_link(1.0, @post, @user_vote) %>
-      <p id="repCount"><%= post_reputation(@votes) %></p>
+      <p class="repCount"><%= post_reputation(@votes) %></p>
       <%= voting_link(-1.0, @post, @user_vote) %>
     </div>
   </div>
@@ -36,6 +36,6 @@
 
 <hr class="dottedDivider" />
 
-<div id="commentList" rel="<%= post_comments_path(@post) %>"><!-- AJAX render --></div>
+<div id="commentList" rel="<%= post_comments_path(@post) %>"></div>
 <%= javascript_include_tag params[:controller] %>
 <script>loadPostComments()</script>

@@ -22,6 +22,7 @@ end
 gem 'jquery-rails'
 gem "select2-rails"
 gem 'redcarpet'
+gem 'kaminari'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
