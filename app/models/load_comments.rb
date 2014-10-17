@@ -30,7 +30,7 @@ class LoadComments
     if comments.kind_of?(ActiveRecord)
       comments = comments.page(pagination).per(5)
     else
-      comments = Kaminari.paginate_array(comments).page(pagination).per(5)
+      comments = Kaminari.paginate_array(comments).page(pagination).per(12)
     end
 
     comments
