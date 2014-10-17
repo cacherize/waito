@@ -34,6 +34,21 @@
           margin-top:2px;
           font-size:10.5pt;
           display:inline-block;
+          .replyFormLoadLink {
+            position:relative;
+            padding-right:24px;
+            &:after {
+              position:absolute;
+              right:0;
+              content: ' ';
+              height:14px;
+              width:18px;
+              top:3px;
+              background-image:image-url('sprites/action_icons.png');
+              background-position:-60px 0;
+            }
+            &:hover:after {background-position:-78px 0;}
+          }
         }
         .postRep {
           height:16px;
