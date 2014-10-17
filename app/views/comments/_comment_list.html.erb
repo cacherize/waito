@@ -1,23 +1,8 @@
 <% if @conjoined_comments.present? %>  
   <% @conjoined_comments.each do |comment, details| %>
     <div class="comment">
-      <div class="postComment postConstraint"> 
-        <div class="postUser">
-          <%= link_to image_tag('default_user.png', class: 'userImageMed'), details[:user] %><br/>
-          <span class="postUsername"><%= link_to details[:user].username %></span>
-        </div>
-        <div class="postContent"><%= markdown(comment.message) %></div>
-        <div class="postBottom">
-          <div class="commentReply">
-            <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
-          </div>
-          <div class="postRep">
-            <%= link_to '', comment_vote_path(comment, rep_val: 1.0), method: :put, class: 'like' %>
-            <p class="repCount"><%= details[:reputation] %></p>
-            <%= link_to '', comment_vote_path(comment, rep_val: -1.0), method: :put, class: 'dislike' %>
-          </div>
-        </div>
-      </div>
+      <% root_comment = true %>
+      <%= render partial: 'comment', locals: {comment: comment, details: details, root_comment: root_comment} %>
       <% if details[:replies].present? %>
         <div class="postSubcomments">
           <div class="postSubcommentsDetail">
@@ -28,20 +13,8 @@
           </div>
           <div class="subcommentList">
             <% details[:replies].each do |c, details| %>
-              <div class="postComment postConstraint"> 
-                <div class="postUser">
-                  <%= link_to image_tag('default_user.png', class: 'userImageMed'), details[:user] %><br/>
-                  <span class="postUsername"><%= link_to details[:user].username %></span>
-                </div>
-                <div class="postContent"><%= markdown(c.message) %></div>
-                <div class="postBottom">
-                  <div class="postRep">
-                    <%= link_to '', comment_vote_path(c, rep_val: 1.0), method: :put, class: 'like' %>
-                    <p class="repCount"><%= details[:reputation] %></p>
-                    <%= link_to '', comment_vote_path(c, rep_val: -1.0), method: :put, class: 'dislike' %>
-                  </div>
-                </div>
-              </div>
+              <% root_comment = false %>
+              <%= render partial: 'comment', locals: {comment: c, details: details, root_comment: root_comment} %>
             <% end %>
           </div>
         </div>
