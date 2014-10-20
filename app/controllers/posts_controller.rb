@@ -5,9 +5,10 @@ class PostsController < ApplicationController
     if @post.deleted?
       render 'deleted'
     else
-      @votes = @post.reputations
+      reps = @post.reputations
+      @votes = reps.pluck(:value).inject(:+)
       if current_user
-        @user_vote = @votes.select{|v| v.user_id == current_user.id}.first
+        @user_vote = reps.select{|v| v.user_id == current_user.id}.first
       end
     end
   end

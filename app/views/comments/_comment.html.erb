@@ -18,7 +18,7 @@
     <% end %>
     <div class="postRep">
       <%= link_to '', comment_vote_path(comment, rep_val: 1.0), method: :put, class: 'like' %>
-      <p class="repCount"><%= details[:reputation] %></p>
+      <p class="repCount"><%= reputation_display(details[:reputation]) %></p>
       <%= link_to '', comment_vote_path(comment, rep_val: -1.0), method: :put, class: 'dislike' %>
     </div>
   </div>
