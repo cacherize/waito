@@ -22,9 +22,14 @@ class LoadComments
       comments = comments.order('created_at ASC')
     else
       @comment_reps = Reputation.where(reputable_type: 'Comment').where(reputable_id: comments.pluck(:id))
-      grouped_comments = @comment_reps.group_by(&:reputable_id)
-      grouped_comments.each{|c, reps| grouped_comments[c] = reps.map(&:value).inject(:+)}
-      comments = comments.sort_by{|c| grouped_comments[c.id] || 0}.reverse
+
+      sort_hash = Hash.new
+      comments.each do |c|
+        reps = @comment_reps.select{|r| r.reputable_id == c.id}.map(&:value)
+        sort_hash.merge!(c.id => reps.inject(:+) || 0.0)
+      end
+
+      comments = comments.sort_by{|c| sort_hash[c.id]}.reverse
     end
 
     if comments.kind_of?(ActiveRecord)
@@ -45,9 +50,9 @@ class LoadComments
   end
 
   def load_reputations
-    @comment_reps ||= []
-    @reply_ids ||= @replies.map(&:id)
-    @comment_ids = @comments.map(&:id) - @comment_reps.map(&:id)
+    # @comment_reps ||= []
+    @reply_ids = @replies.map(&:id)
+    @comment_ids = @comments.map(&:id) #- @comment_reps.map(&:id)
     reputable_ids = @comment_ids + @reply_ids
 
     reps = Reputation.where(reputable_type: 'Comment').where(reputable_id: reputable_ids)
@@ -63,19 +68,19 @@ class LoadComments
     end
 
     @comments.each do |c|
-      rep_value = @reputations.select{|rep| rep.reputable_id == c.id}.map(&:value).inject(:+) || 0
+      comment_rep = @reputations.select{|rep| rep.reputable_id == c.id}.map(&:value).inject(:+) || 0
       replies = @replies.select{|r| r.commentable_id == c.id}
       @conjoined_replies = {}
 
       replies.each do |r|
-        rep_value = @reputations.select{|rep| rep.reputable_id == r.id}.map(&:value).inject(:+) || 0
+        reply_rep = @reputations.select{|rep| rep.reputable_id == r.id}.map(&:value).inject(:+) || 0
         user = @users.select{|u| u.id == c.user_id}.first
 
         if @user_reps
           user_rep = @user_reps.select{|rep| rep.reputable_id == r.id}
         end
 
-        @conjoined_replies.merge!(r => {reputation: rep_value, user_rep: user_rep, user: user})
+        @conjoined_replies.merge!(r => {reputation: reply_rep, user_rep: user_rep, user: user})
       end
 
       user = @users.select{|u| u.id == c.user_id}.first
@@ -84,7 +89,7 @@ class LoadComments
         user_rep = @user_reps.select{|r| r.reputable_id == c.id}
       end
 
-      @conjoined_comments.merge!(c => {reputation: rep_value, replies: @conjoined_replies, user_rep: user_rep, user: user})
+      @conjoined_comments.merge!(c => {reputation: comment_rep, replies: @conjoined_replies, user_rep: user_rep, user: user})
     end
 
     @conjoined_comments
