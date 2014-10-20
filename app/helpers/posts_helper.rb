@@ -26,6 +26,16 @@ module PostsHelper
   end
 
   def reputation_display(rep)
-    rep.to_i # sum votes together
+    value = rep.to_i
+
+    if value == 0
+      css_class = "neutral"
+    elsif value < 0
+      css_class = "negative"
+    elsif value > 0
+      css_class = "positive"
+    end
+      
+    content_tag :span, value, class: css_class
   end
 end
