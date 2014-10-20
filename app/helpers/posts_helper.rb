@@ -8,7 +8,8 @@ module PostsHelper
   end
 
   def voting_link(value, post, existing_vote)
-    path = post_vote_path(post, rep_val: value)
+    obj_sym = (post.class.name.underscore + "_id").to_s
+    path = url_for(controller: 'reputations', action: 'update', rep_val: value, obj_sym => post)
     upvote = value > 0
     css_classes = upvote ? "like" : "dislike"
     title = upvote ? '+1' : '-1'

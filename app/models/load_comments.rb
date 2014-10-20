@@ -77,7 +77,7 @@ class LoadComments
         user = @users.select{|u| u.id == c.user_id}.first
 
         if @user_reps
-          user_rep = @user_reps.select{|rep| rep.reputable_id == r.id}
+          user_rep = @user_reps.find{|rep| rep.reputable_id == r.id}
         end
 
         @conjoined_replies.merge!(r => {reputation: reply_rep, user_rep: user_rep, user: user})
@@ -86,7 +86,7 @@ class LoadComments
       user = @users.select{|u| u.id == c.user_id}.first
 
       if @user_reps
-        user_rep = @user_reps.select{|r| r.reputable_id == c.id}
+        user_rep = @user_reps.find{|r| r.reputable_id == c.id}
       end
 
       @conjoined_comments.merge!(c => {reputation: comment_rep, replies: @conjoined_replies, user_rep: user_rep, user: user})
