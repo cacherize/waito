@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   before_create { generate_token(:auth_token) }
   #=== END CALLBACKS ===#
 
+  def to_param
+    username.parameterize
+  end
+
   def downcase_email
     self.email.downcase! if self.email_changed?
   end
