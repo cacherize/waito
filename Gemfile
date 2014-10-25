@@ -44,6 +44,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rack-mini-profiler'
   gem "letter_opener"
+  
+   # run some required services using foreman start
+  gem "foreman"
 end
 
 group :test do
@@ -55,7 +58,4 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
-
- # run some required services using foreman start, more on this at the end of the article
-  gem "foreman"
 end
