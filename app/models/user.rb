@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :avatar
+  dragonfly_accessor :avatar
   has_secure_password
 
   has_many :posts
