@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rack-mini-profiler'
   gem "letter_opener"
+  gem 'dotenv-rails'
   
    # run some required services using foreman start
   gem "foreman"
