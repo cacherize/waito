@@ -48,6 +48,10 @@ GEM
     dotenv-deployment (0.0.2)
     dotenv-rails (0.11.1)
       dotenv (= 0.11.1)
+    dragonfly (1.0.7)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack
     erubis (2.7.0)
     execjs (2.2.1)
     ffi (1.9.3)
@@ -188,6 +192,7 @@ DEPENDENCIES
   aws-sdk
   bcrypt-ruby (~> 3.0.0)
   dotenv-rails
+  dragonfly (~> 1.0.7)
   foreman
   guard
   guard-bundler
