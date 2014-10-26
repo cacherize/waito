@@ -24,8 +24,6 @@ gem "select2-rails"
 gem 'redcarpet'
 gem 'kaminari'
 gem 'aws-sdk'
-gem 'dragonfly', '~> 1.0.7'
-gem 'dragonfly-s3_data_store'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

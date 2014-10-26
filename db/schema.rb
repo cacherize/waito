@@ -74,8 +74,7 @@ ActiveRecord::Schema.define(:version => 20141026023110) do
     t.datetime "deleted_at"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.string   "avatar_uid"
-    t.string   "avatar_name"
+    t.string   "avatar_url"
   end
 
 end
