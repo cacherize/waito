@@ -36,6 +36,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_avatar
+    @user = User.username_search(params[:id])
+
+    respond_to do |format|
+      if @user.update_avatar(params[:user])
+        format.html{redirect_to @user, notice: "Success! Your avatar has been updated."}
+      else
+        format.html{redirect_to @user, alert: DEFAULT_ERROR_MSG}
+      end
+    end
+  end
+
   def destroy
     @user = User.username_search(params[:id])
 
@@ -43,7 +55,7 @@ class UsersController < ApplicationController
       if @user.destroy
         format.html{redirect_to root_path, notice: 'Success! Your account has been deleted.'}
       else
-        format.html{redirect_to @user, alert: 'An error occurred. Please try again.'}
+        format.html{redirect_to @user, alert: DEFAULT_ERROR_MSG}
       end
     end
   end
