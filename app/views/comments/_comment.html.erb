@@ -1,7 +1,7 @@
 <div class="postComment postConstraint"> 
   <div class="postUser">
     <%= link_to image_tag(details[:user].avatar_url, class: 'userImageMed'), details[:user] %><br/>
-    <span class="postUsername"><%= link_to details[:user].username %></span>
+    <span class="postUsername"><%= link_to details[:user].username, details[:user] %></span>
   </div>
   <div class="postContent"><%= markdown(comment.message) %></div>
   <div class="postBottom">

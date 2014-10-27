@@ -23,7 +23,7 @@
 
   <div class="postUser">
     <%= link_to image_tag(@post.user.avatar_url, class: 'userImage'), @post.user %>
-    <span class="postUsername"><%= link_to @post.user.username %></span>
+    <span class="postUsername"><%= link_to @post.user.username, @post.user %></span>
   </div>
 </div>
 <hr class="dottedDivider" />
