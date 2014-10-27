@@ -1,0 +1,1 @@
+DEFAULT_ERROR_MSG = "An error occurred. Please try again."
