@@ -18,7 +18,9 @@ Waito::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   get 'username_check' => 'username_check#index'
   get 'signup' => "users#new"
-  resources :users
+  resources :users do
+    put 'update_avatar', on: :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
