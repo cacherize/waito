@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
     username.parameterize
   end
 
+  def avatar_url
+    url = read_attribute(:avatar_url)
+    
+    if url && S3_BUCKET.objects[url].exists?
+      S3_BUCKET.url+url
+    else
+      DEFAULT_AVATAR_URL
+    end
+  end
+
   def downcase_email
     self.email.downcase! if self.email_changed?
   end
