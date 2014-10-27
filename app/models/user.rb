@@ -57,4 +57,15 @@ class User < ActiveRecord::Base
     self.save!
     Messager.reset_password(self.id).deliver
   end
+
+  def update_avatar(attributes)
+    old_avatar_url = self.avatar_url
+
+    if saved = self.update_attribute(:avatar_url, attributes[:avatar_url]) && old_avatar_url
+      old_avatar_obj = S3_BUCKET.objects[old_avatar_url]
+      old_avatar_obj.delete if old_avatar_obj.exists? && old_avatar_obj.key != self.avatar_url
+    end
+
+    return saved
+  end
 end
