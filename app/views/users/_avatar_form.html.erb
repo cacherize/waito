@@ -1,0 +1,23 @@
+<%= form_for @user, url: update_avatar_user_path(@user), html: {class: 'form avatarUpload'} do |f| %>
+  <h1 class="formHeader">Change Avatar</h1>
+
+  <p class="formInstructions">
+    Max 1MB file size. Image file formats only (jpg, jpeg, png, gif).
+  </p>
+
+  <div class="formField">
+    <%= label_tag :avatar, "Select a file:" %><br/>
+    <%= file_field_tag :avatar %>
+    <%= f.hidden_field :avatar_url %>
+  </div>
+
+  <div class="formSubmit">
+    <%= submit_tag 'Upload Avatar' %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag 'jquery.ui.widget' %>
+<%= javascript_include_tag 'jquery.fileupload' %>
+<script>
+  directUploadForm('.avatarUpload', '<%= @s3_direct_post.url %>', <%= @s3_direct_post.fields.to_json.html_safe %>)
+</script>
