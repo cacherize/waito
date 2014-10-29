@@ -1,2 +1,23 @@
 img.userImage {border-radius:5%; max-width:120px; max-height:120px;}
 img.userImageMed {border-radius:5%; max-height:75px; max-width:75px;}
+
+#profile {
+  margin:40px 0 40px 140px;
+  position:relative;
+  #profileAvatar {
+    position:absolute;
+    right:100%;
+    top:0;
+    padding-right:20px;
+    text-align:center;
+  }
+  #profileHeader {
+    #joinedDatestamp {color:#888; font-size:0.9em; float:right;}
+    h1 {
+      margin:0 0 10px 0;
+      border-bottom:1px dashed;
+      font-weight:300;
+      font-size:2.5em;
+    }
+  }
+}

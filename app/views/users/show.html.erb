@@ -1,5 +1,14 @@
-<%= image_tag @user.avatar_url %>
-<%= link_to 'Change Avatar', '#', id: 'avatarPopupLink' %>
+<div id="profile">
+  <div id="profileAvatar">
+    <%= image_tag @user.avatar_url, class: 'userImage' %><br/>
+    <%= link_to 'Change Avatar', '#', id: 'avatarPopupLink' %>
+  </div>
+  <div id="profileHeader"> 
+    <h1><%= @user.username %></h1>
+    <%= link_to '<span class="actionIcon edit"></span> Edit User'.html_safe, edit_user_path(@user), class: 'actionLink' %>
+    <span id="joinedDatestamp">Joined: <%= displayed_created_at(@user.created_at) %></span>
+  </div>
+</div>
 
 <%= javascript_include_tag params[:controller] %>
 <%= popup('avatar_form', 'avatarPopup') %>
