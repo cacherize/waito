@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem "select2-rails"
 gem 'redcarpet'
 gem 'kaminari'
+gem 'aws-sdk'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,6 +44,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rack-mini-profiler'
   gem "letter_opener"
+  gem 'dotenv-rails'
+  
+   # run some required services using foreman start
+  gem "foreman"
 end
 
 group :test do
@@ -54,7 +59,4 @@ group :test do
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
-
- # run some required services using foreman start, more on this at the end of the article
-  gem "foreman"
 end

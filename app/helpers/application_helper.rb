@@ -32,4 +32,8 @@ module ApplicationHelper
   def displayed_datestamp(datetime)
     distance_of_time_in_words_to_now(datetime) + " ago"
   end
+
+  def displayed_created_at(datetime)
+    datetime.strftime("%B %e, %Y")
+  end
 end
