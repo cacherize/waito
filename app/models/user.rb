@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   def avatar_url
     url = read_attribute(:avatar_url)
     
-    if url && S3_BUCKET.objects[url].exists?
+    if url
       S3_BUCKET.url+url
     else
       DEFAULT_AVATAR_URL
