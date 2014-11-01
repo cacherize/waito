@@ -22,4 +22,8 @@ class Post < ActiveRecord::Base
   def deleted?
     self.deleted_at.present?
   end
+
+  def reputation
+    reputations.pluck(:value).inject(:+).to_i
+  end
 end
