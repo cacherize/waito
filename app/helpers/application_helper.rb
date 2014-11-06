@@ -30,10 +30,10 @@ module ApplicationHelper
   end
 
   def displayed_datestamp(datetime)
-    distance_of_time_in_words_to_now(datetime) + " ago"
+    content_tag(:time, distance_of_time_in_words_to_now(datetime) + " ago", datetime: datetime)
   end
 
   def displayed_created_at(datetime)
-    datetime.strftime("%B %e, %Y")
+    content_tag(:time, datetime.strftime("%B %e, %Y"), datetime: datetime)
   end
 end
