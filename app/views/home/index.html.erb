@@ -1,0 +1,24 @@
+<div id="previewList">
+  <% @post.each do |post| %>
+    <div class="previewPost">
+      <div class="previewStats">
+        <div class="previewReputation"><%= post.reputation %></div>
+        <p class="previewStatLabel">REP</p>
+      </div>
+
+      <div class="previewStats">
+        <div class="previewCommentCount"><%= post.comments.size %></div>
+        <p class="previewStatLabel">COMMENTS</p>
+      </div>
+
+      <div class="previewContent">
+        <p class="previewTitle"><%= link_to post.title, post %></p>
+        <div class="previewDetails">
+          <span class="previewDatestamp"><%= displayed_datestamp(post.created_at) %> </span> 
+          <span class="previewTagList"><%= render(partial: 'tags/tag', collection: post.tags) || "This post has no tags." %></span>
+        </div>
+      </div>
+      <br class="clear"/>
+    </div>
+  <% end %>
+</div>

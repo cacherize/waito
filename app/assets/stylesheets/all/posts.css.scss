@@ -84,3 +84,34 @@
   }
 }
 .subCommentForm {margin:0 0 10px; min-height:0; display:none;}
+
+#previewList {
+  margin-top:20px;
+  .previewPost {
+    margin-bottom:20px;
+    .previewStats {
+      float:left;
+      margin:0 12px 0 0;
+      width:65px;
+      text-align:center;
+      .previewCommentCount, .previewReputation {
+        padding:2px 5px;
+        text-align:center;
+        font-weight:300;
+        text-align:center;
+        background:#eee;
+        border-radius:3px;
+      }
+      .previewReputation {background:#ddd;}
+      .previewStatLabel {font-size:0.65em; margin:2px 0 0 0; color:#888;}
+    }
+    .previewContent {
+      overflow:hidden;
+      .previewTitle {margin:0;}
+      .previewDetails {
+        .previewDatestamp {color:#888; font-size:0.8em; margin-right:3px;}
+        .previewTagList .tagItem {padding:4px 6px; font-size:0.8em; background:#eee;}
+      }
+    }
+  }
+}
