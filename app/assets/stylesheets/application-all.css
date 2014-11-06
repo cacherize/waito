@@ -97,6 +97,10 @@ li {list-style-type:square;}
 .placeholder {color:#ccc; font-style:italic;}
 hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 
+.positive {color:green;}
+.negative {color:red;}
+.neutral {color:#444;}
+
 .flash {
   padding:0;
   margin:0;
