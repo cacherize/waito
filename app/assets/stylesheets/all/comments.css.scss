@@ -37,18 +37,27 @@
           display:inline-block;
           .replyFormLoadLink {
             position:relative;
-            padding-right:24px;
-            &:after {
-              position:absolute;
-              right:0;
-              content: ' ';
-              height:14px;
+            .commentIcon {
+              margin-left:5px;
+              height:12px;
               width:18px;
-              top:3px;
-              background-image:image-url('sprites/action_icons.png');
-              background-position:-60px 0;
+              display:inline-block;
+              background:#ddd;
+              border-radius:5px;
+              position:relative;
+              &:after {
+                content:' ';
+                position:absolute;
+                right:10px;
+                top:6px;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 0 5px 6px;
+                border-color: transparent transparent transparent #ddd;
+              }
             }
-            &:hover:after {background-position:-78px 0;}
+            &:hover .commentIcon {background:#eee;}
+            &:hover .commentIcon:after {border-color: transparent transparent transparent #eee;}
           }
         }
         .postRep {

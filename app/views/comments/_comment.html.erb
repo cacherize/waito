@@ -13,7 +13,9 @@
     </div>
     <% if root_comment %>
       <div class="commentReply">
-        <%= link_to 'Reply to comment', load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id  %>
+        <%= link_to load_reply_form_path(comment), class: 'replyFormLoadLink', rel: comment.id do   %>
+          Reply to comment <%= content_tag(:span, '', class: 'commentIcon') %>
+        <% end %>
       </div>
     <% end %>
     <div class="postRep">
