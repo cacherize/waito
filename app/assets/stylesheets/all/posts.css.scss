@@ -104,7 +104,10 @@
     }
     .previewContent {
       overflow:hidden;
-      .previewTitle {margin:0;}
+      .previewTitle {
+        margin:0;
+        a:visited {color:#468;}
+      }
       .previewDetails {
         .previewDatestamp {color:#888; font-size:0.8em; margin-right:3px;}
         .previewTagList .tagItem {padding:4px 6px; font-size:0.8em; background:#eee;}
