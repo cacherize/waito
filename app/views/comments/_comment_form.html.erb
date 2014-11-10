@@ -1,8 +1,8 @@
 <div class="postUser">
   <div class="formField">
     <%= label_tag '', '&nbsp;'.html_safe %><br/>
-    <%= link_to image_tag(@post.user.avatar_url, class: 'userImageMed'), current_user %><br/>
-    <span class="postUsername"><%= link_to @post.user.username, @post.user %></span>
+    <%= user_med_avatar(current_user) %><br/>
+    <span class="postUsername"><%= link_to current_user.username, current_user %></span>
   </div>
 </div>
 <%= form_for [@post, Comment.new] do |f| %>
