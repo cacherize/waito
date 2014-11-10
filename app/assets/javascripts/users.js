@@ -32,7 +32,11 @@ function directUploadForm(formSelector, bucketUrl, s3Data){
 
           submitButton.bind('click', function(event){
             if (currentFile == fileIndex) {
-              data.submit();
+              if (data.files[0].name.match(/\.(gif|png|jpg|jpeg)$/i)) {
+                data.submit();
+              } else {
+                alert("You can only use .png, .gif, .jpg, or .jpeg file formats.")
+              }
             } else {
               data.pop;
             }
@@ -71,4 +75,25 @@ function directUploadForm(formSelector, bucketUrl, s3Data){
       });
     });
   });
+
+  $("#avatar").change(function(){
+    var $previewImg = $(".ipImage img"),
+        $that = this;
+
+    if ($that.files && $that.files[0]) {
+      if ($that.files[0].name.match(/\.(gif|png|jpg|jpeg)$/i)) {
+        var reader = new FileReader();
+        
+        reader.onload = function (e) {
+          $previewImg.attr('src', e.target.result);
+        }
+          
+        reader.readAsDataURL($that.files[0]);
+      } else {
+        $previewImg.attr('src', $("#profileAvatar").find('img').attr('src'));
+        alert("You can only use .png, .gif, .jpg, or .jpeg file formats.")
+      }
+    }
+  })
 }
+
