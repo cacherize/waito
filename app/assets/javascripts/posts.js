@@ -3,12 +3,12 @@ $(document).ready(function(){
     var $that = $(this),
         $comment = $that.closest('.comment'),
         $container = $that.closest("#commentList"),
-        $rel = $that.attr('rel');
+        $comment_id = $that.data('comment-id');
 
     $container.find(".subCommentForm").hide();
 
-    if ($("#commentForm_"+$rel).length > 0) {
-      $("#commentForm_"+$rel).slideDown();
+    if ($("#commentForm_"+$comment_id).length > 0) {
+      $("#commentForm_"+$comment_id).slideDown();
     } else {
       $.get(this.href, function(data){
         if ($comment.children('.postSubcomments').length > 0) {
@@ -17,7 +17,7 @@ $(document).ready(function(){
           $comment.append("<div class='postSubcomments'>"+data+"</div>");
         }
       }).done(function(){
-        $("#commentForm_"+$rel).slideDown();
+        $("#commentForm_"+$comment_id).slideDown();
       });
     }
     
