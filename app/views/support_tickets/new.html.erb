@@ -16,10 +16,12 @@
     </div><br/>
 
     <div class="formField">
-      <%= f.label :message %><br/>
+      <%= f.label :message %>
+      <span class="fieldReq"><span id="supportMessageCharCount">1000</span> characters left</span><br/>
       <%= f.text_area :message, placeholder: "Try to be descriptive, but brief. Maximum 1000 characters." %>
     </div><br/>
 
     <div class="formSubmit"><%= f.submit 'Create Ticket' %></div>
   <% end %>
 </div>
+<%= javascript_include_tag params[:controller] %>
