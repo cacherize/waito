@@ -1,5 +1,7 @@
 img.userImage {border-radius:5%; max-width:120px; max-height:120px;}
+div.userImageWrapper {width:120px; max-height:120px; display:inline-block; text-align:center;}
 img.userImageMed {border-radius:5%; max-height:75px; max-width:75px;}
+div.userImageMedWrapper {width:75px; max-height:75px; display:inline-block; text-align:center;}
 
 #profile {
   margin:40px 0 40px 140px;
