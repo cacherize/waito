@@ -66,6 +66,19 @@
     }
     #emailFix {font-size:0.85em;}
   }
+  .ipBox {
+    text-align:center;
+    display:block;
+    border:1px solid #eee;
+    border-radius:5px;
+    margin:20px 0;
+    img {margin:10px 0;}
+    .ipHeader {
+      display:block;
+      background:#eee;
+      font-size:0.7em;
+    }
+  }
   .formSubmit {
     padding:5px 0 0 0;
     height:50px;
