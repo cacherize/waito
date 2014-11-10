@@ -94,6 +94,8 @@ li {list-style-type:square;}
 .textLeft {text-align:left;}
 .right {float:right;}
 .left {float:left;}
+.noMargin {margin:0;}
+.noPadding {padding:0;}
 .placeholder {color:#888; font-style:italic;}
 hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 
