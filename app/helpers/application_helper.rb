@@ -36,4 +36,8 @@ module ApplicationHelper
   def displayed_created_at(datetime)
     content_tag(:time, datetime.strftime("%B %e, %Y"), datetime: datetime)
   end
+
+  def spinner
+    image_tag 'loader.gif', alt: 'Loading...'
+  end
 end

@@ -39,6 +39,6 @@
 
 <hr class="dottedDivider" />
 
-<div id="commentList" rel="<%= post_comments_path(@post) %>"></div>
+<div id="commentList" rel="<%= post_comments_path(@post) %>"><%= spinner %></div>
 <%= javascript_include_tag params[:controller] %>
 <script>loadPostComments()</script>
