@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 var loadPostComments = function(){
   var $target = $("#commentList");
-  renderComments($target.attr("rel"));
+  renderComments($target.data("comment-load-path"));
 
   $target.on('click', '.sortMenu li a', function(event){
     renderComments(this.href);
