@@ -12,8 +12,7 @@ Waito::Application.routes.draw do
   end
 
   resources :support_tickets, only: [:index, :create, :new]
-  get 'support/new_ticket', to: 'support#new'
-  get 'support', to: 'support#index'
+  get 'support', to: 'support_tickets#new'
   get 'forgot_password', to: 'password_resets#new', as: 'forgot_password'
   resources :password_resets, only: [:new, :create, :edit, :update]
   get 'login', to: 'sessions#new', as: 'login'
