@@ -1,6 +1,8 @@
 class SupportTicket < ActiveRecord::Base
   attr_accessible :email, :message, :reason, :user_id
 
+  belongs_to :user
+
   validates :email, 
     presence: true, 
     format: {
