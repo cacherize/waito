@@ -1,7 +1,8 @@
 class PasswordResetsController < ApplicationController
   require 'action_view'
   include ActionView::Helpers::DateHelper
-
+  skip_filter :store_path
+  
   def new
   end
 
