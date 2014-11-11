@@ -25,6 +25,10 @@ class SupportTicket < ActiveRecord::Base
     "Other" => "other"
   }
 
+  def archived?
+    !!self.archived_at
+  end
+
   def display_reason
     TICKET_REASONS.key(self.reason)
   end
