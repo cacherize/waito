@@ -22,4 +22,8 @@ class SupportTicket < ActiveRecord::Base
     "Report Bug" => "bug",
     "Other" => "other"
   }
+
+  def display_reason
+    TICKET_REASONS.key(self.reason)
+  end
 end
