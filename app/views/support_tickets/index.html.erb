@@ -11,7 +11,18 @@
     <p class="ticketContent"><%= ticket.message %></p>
     <div class="ticketBottom">
       <span class="ticketDatestamp">Received <%= displayed_datestamp(ticket.created_at) %></span> |
-      <%= link_to 'Archive' %>
+      <% if ticket.archived? %>
+        Archived <%= displayed_datestamp(ticket.archived_at) %> |
+        <%= link_to('Unarchive', 
+          support_ticket_path(ticket, support_ticket: {archived_at: nil}), 
+          method: :put)
+        %>
+      <% else %>
+        <%= link_to('Archive', 
+          support_ticket_path(ticket, support_ticket: {archived_at: DateTime.now}), 
+          method: :put)
+        %>
+      <% end %>
     </div>
   </div>
 <% end %>
