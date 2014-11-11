@@ -13,7 +13,9 @@
     </div>
     <% if root_comment %>
       <div class="commentReply">
-        <%= link_to load_reply_form_path(comment), class: 'replyFormLoadLink', data: {comment_id: comment.id} do   %>
+        <%= link_to(load_reply_form_path(comment), 
+          class: "replyFormLoadLink#{' loginPopupLink' unless current_user}", 
+          data: {comment_id: comment.id}) do %>
           Reply to comment <%= content_tag(:span, '', class: 'commentIcon') %>
         <% end %>
       </div>

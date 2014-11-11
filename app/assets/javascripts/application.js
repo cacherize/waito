@@ -46,9 +46,9 @@ $(document).ready(function(){
     });
   }
 
-  $(".loginPopupLink").click(function(event){
+  $("#content").on('click', '.loginPopupLink', function(event){
     $("#loginPopup").popup();
-    return false;
+    event.preventDefault();
   });
 });
 
