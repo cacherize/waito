@@ -1,2 +1,17 @@
-<h1>Support#index</h1>
-<p>Find me in app/views/support/index.html.erb</p>
+<h1>Support Tickets</h1>
+<% @tickets.each do |ticket| %>
+  <div class="ticket">
+    <h4 class="ticketHeader">
+      <%= ticket.display_reason %>
+      <span> | <%= ticket.email %></span>
+      <% if ticket.user %>
+        <span> | <%= link_to ticket.user.username, ticket.user %></span>
+      <% end %>
+    </h4>
+    <p class="ticketContent"><%= ticket.message %></p>
+    <div class="ticketBottom">
+      <span class="ticketDatestamp">Received <%= displayed_datestamp(ticket.created_at) %></span> |
+      <%= link_to 'Archive' %>
+    </div>
+  </div>
+<% end %>
