@@ -48,7 +48,7 @@ $(document).ready(function(){
 
   $("#content").on('click', '.loginPopupLink', function(event){
     $("#loginPopup").popup();
-    event.preventDefault();
+    return false;
   });
 });
 
