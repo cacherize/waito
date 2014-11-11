@@ -18,4 +18,16 @@ class SupportTicketsController < ApplicationController
   def index
     @tickets = SupportTicket.order('created_at DESC')
   end
+
+  def update
+    @ticket = SupportTicket.find(params[:id])
+
+    respond_to do |format|
+      if @ticket.update_attributes(params[:support_ticket])
+        format.html{redirect_to support_tickets_path, notice: "Success! Support ticket updated."}
+      else
+        format.html{render :index}
+      end
+    end
+  end
 end
