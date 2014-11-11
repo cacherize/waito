@@ -1,5 +1,5 @@
 class SupportTicket < ActiveRecord::Base
-  attr_accessible :email, :message, :reason, :user_id
+  attr_accessible :email, :message, :reason, :user_id, :archived_at
 
   belongs_to :user
 
