@@ -34,7 +34,7 @@
   </div>
 <% else %>
   <h3 id="cfpHeader">Leave A Comment</h3>
-  <p id="cfpMessage">You must <%= link_to 'login', login_path %> before you can leave a comment. Don't have an account? Sign-up for free <%= link_to 'here', signup_path %>.</p>
+  <p id="cfpMessage">You must <%= link_to 'login', login_path, class: 'loginPopupLink' %> before you can leave a comment. Don't have an account? Sign-up for free <%= link_to 'here', signup_path %>.</p>
 <% end %>
 
 <hr class="dottedDivider" />
