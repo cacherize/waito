@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_filter :store_path
+  
   def index
     load_commentable
     load_comments = LoadComments.new(@commentable, current_user, params[:page], params[:comment_sort])
