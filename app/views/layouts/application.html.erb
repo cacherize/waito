@@ -45,6 +45,15 @@
     </div>
 
     <div id="footer">
+      <section id="footerContent">
+        <p id="footerLinks">
+          <%= link_to 'Home', root_path %> &#8226;
+          <%= link_to 'Support Ticket', support_path %> &#8226;
+          <%= link_to 'Make A Suggestion' %> &#8226;
+          <%= link_to 'Privacy Policy' %>
+        </p>
+        <p id="footerCopy">Copyright &copy; 2014 What Am I Thinking Of</p>
+      </section>
     </div>
 
     <% unless current_user %>

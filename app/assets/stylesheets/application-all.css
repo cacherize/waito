@@ -73,19 +73,42 @@ li {list-style-type:square;}
   background:#ffbb39;
 }
 #body {
-  padding-bottom:130px;
-}
-#body #content {
-  margin:auto;
-  width:960px;
+  padding-bottom:100px;
 }
 #footer {
   position:absolute;
   left:0;
   bottom:0;
-  height:130px;
+  height:100px;
   width:100%;
   background:#ddd;
+}
+#footer #footerContent,
+#body #content {
+  margin:auto;
+  width:960px;
+}
+#footerContent {
+  text-align:center;
+  color:#888;
+  font-size:1.1em;
+  position:relative;
+  line-height:80px;
+  height:100%;
+}
+#footerContent a {color:#888; padding:5px 8px; border-radius:4px;}
+#footerContent a:hover {color:#444;}
+#footerContent #footerLinks {margin:0;}
+#footerContent #footerCopy {
+  position:absolute;
+  left:0;
+  bottom:5px;
+  margin:0;
+  line-height:normal;
+  width:100%;
+  text-align:center;
+  font-size:0.8em;
+  color:#888;
 }
 
 .clear {clear:both;}
