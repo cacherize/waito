@@ -16,5 +16,6 @@ class SupportTicketsController < ApplicationController
   end
 
   def index
+    @tickets = SupportTicket.order('created_at DESC')
   end
 end
