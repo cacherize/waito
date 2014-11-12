@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141110050527) do
+ActiveRecord::Schema.define(:version => 20141112034424) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -59,8 +59,9 @@ ActiveRecord::Schema.define(:version => 20141110050527) do
     t.datetime "resolved_at"
     t.text     "response"
     t.datetime "archived_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "public_address"
   end
 
   create_table "tags", :force => true do |t|
