@@ -5,6 +5,7 @@ class SupportTicketsController < ApplicationController
 
   def create
     @ticket = SupportTicket.new(params[:support_ticket])
+    @ticket.public_address = request.remote_ip
 
     respond_to do |format|
       if @ticket.save
