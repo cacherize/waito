@@ -1,3 +1,3 @@
 class Suggestion < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :title, :message
 end
