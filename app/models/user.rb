@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :reputations
   has_many :comments
+  has_many :suggestions
+  has_many :support_tickets
 
   # VALIDATIONS ==================
   validates :email, presence: true, on: :create
