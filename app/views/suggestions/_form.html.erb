@@ -1,0 +1,19 @@
+<div class="center">
+  <%= form_for @suggestion, html: {class: 'form'} do |f| %>
+    <h1 class="formHeader"><%= @suggestion.new_record? ? "Make A" : "Edit Your" %> Suggestion</h1>
+
+    <div class="formField">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title, placeholder: 'Short description' %>
+    </div><br/>
+
+    <div class="formField">
+      <%= f.label :message, 'Describe Your Suggestion' %><br/>
+      <%= f.text_area :message, placeholder: 'Explain in detail' %>
+    </div><br/>
+
+    <div class="formSubmit">
+      <%= f.submit 'Submit Suggestion' %>
+    </div>
+  <% end %>
+</div>
