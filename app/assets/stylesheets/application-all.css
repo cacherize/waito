@@ -123,7 +123,7 @@ li {list-style-type:square;}
 hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 
 .positive {color:green;}
-.negative {color:red;}
+.negative {color:#f33;}
 .neutral {color:#444;}
 
 .flash {

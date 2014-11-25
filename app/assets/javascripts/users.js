@@ -69,7 +69,7 @@ function directUploadForm(formSelector, bucketUrl, s3Data){
           submitButton.prop('disabled', false);
 
           progressBar.
-            css("background", "red").
+            css("background", "#f33").
             text("Failed");
         }
       });
