@@ -3,6 +3,7 @@ class SuggestionsController < ApplicationController
   end
 
   def new
+    @suggestion = Suggestion.new
   end
 
   def create
