@@ -1,0 +1,15 @@
+<div id="ns">
+  <h1 id="nsHeader">We Want To Hear What You Have To Say!</h1>
+  <div id="nsLinkWrapper"><%= link_to "Make A Suggestion", new_suggestion_path %></div>
+</div>
+
+<div id="suggestionList">
+  <% @suggestions.each do |suggestion| %>
+    <div class="suggestionPreview">
+      <div class="suggestionContent">
+        <p class="suggestionTitle"><%= suggestion.title %></p>
+        <p class="suggestionDescription"><%= suggestion.message %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
