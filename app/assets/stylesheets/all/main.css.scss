@@ -1,0 +1,23 @@
+.banner {
+  text-align:center;
+  margin:20px 0 0;
+  padding:20px;
+  background:#fcffaa;
+  border-radius:8px;
+  .bannerHeader {
+    margin:0 0 5px;
+    font-weight:300;
+  }
+  .bannerContent {
+    display:inline-block;
+    min-width:300px;
+    .bannerButton {
+      background:#aaa;
+      display:block;
+      padding:10px;
+      color:#fff;
+      border-radius:5px;
+      &:hover {background:#bbb;}
+    }
+  }
+}
