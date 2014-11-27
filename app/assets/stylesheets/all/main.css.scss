@@ -12,12 +12,12 @@
     display:inline-block;
     min-width:300px;
     .bannerButton {
-      background:#aaa;
+      background:orange;
       display:block;
       padding:10px;
       color:#fff;
       border-radius:5px;
-      &:hover {background:#bbb;}
+      &:hover {background:#ffbb39;}
     }
   }
 }
