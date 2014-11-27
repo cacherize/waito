@@ -59,6 +59,7 @@ li {list-style-type:square;}
   padding:0;
   float:right;
 }
+#header #nav ul {margin:0; padding:0;}
 #header #nav li {
   display:inline-block;
   line-height:60px;
