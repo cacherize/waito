@@ -1,3 +1,21 @@
+<div class="banner">
+  <h1 class="bannerHeader">Need Help Thinking of the Name of that
+    <div id="wordTransition">
+      <span id="displayWord">Song?</span>
+      <ul id="wordList">
+        <li class="displayed">Song?</li>
+        <li>Movie?</li>
+        <li>Superhero?</li>
+        <li>Recipe?</li>
+        <li>Actor?</li>
+        <li>Video Game?</li>
+        <li>Band?</li>
+      </ul>
+    </div>
+  </h1>
+  <div class="bannerContent"><%= link_to "Make A Post", new_suggestion_path, class: 'bannerButton' %></div>
+</div>
+
 <div id="previewList">
   <% @post.each do |post| %>
     <div class="previewPost">
@@ -22,3 +40,42 @@
     </div>
   <% end %>
 </div>
+
+<script>
+$(document).ready(function(){
+  // $("#slider").tinycarousel({
+  //   axis: "y",
+  //   interval: true,
+  //   intervalTime: 5000
+  // });
+
+  cycleWord();
+
+  function cycleWord(){
+    var $wordContainer = $("#displayWord"),
+        $wordList = $("#wordList"),
+        $words = $wordList.find('li');
+
+    setTimeout(function(){
+      var $displayed = $wordList.find('.displayed'),
+          index = $displayed.index() + 1,
+          $nextWord;
+        
+      $displayed.removeClass('displayed')
+
+      if (index === $words.length) {
+        $nextWord = $wordList.children('li').first().addClass('displayed');
+      } else {
+        $nextWord = $displayed.next('li').addClass('displayed');
+      }
+
+      $wordContainer.animate({opacity: 0}, function(){
+        $wordContainer.text($nextWord.text());
+        $wordContainer.animate({opacity: 1});
+      });
+
+      cycleWord();
+    }, 4000);
+  }
+});
+</script>
