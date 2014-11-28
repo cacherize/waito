@@ -5,6 +5,7 @@ class FlagsController < ApplicationController
 
     respond_to do |format|
       if @flag.save
+        format.js
         format.html{redirect_to @flaggable, notice: 'Thank you for the feedback!'}
       else
         format.html{redirect_to @flaggable, alert: DEFAULT_ERROR_MSG}
