@@ -30,7 +30,7 @@ var loadPostComments = function(){
   var $target = $("#commentList");
   renderComments($target.data("comment-load-path"));
 
-  $target.on('click', '.sortMenu li a', function(event){
+  $target.on('click', '.dropMenu li a', function(event){
     renderComments(this.href);
 
     event.preventDefault();
