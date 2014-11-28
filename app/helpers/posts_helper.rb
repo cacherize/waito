@@ -42,9 +42,9 @@ module PostsHelper
 
   def post_report_link(post)
     if current_user && flag = post.flags.where(user_id: current_user.id).first
-      link_to '<span class="actionIcon report"></span> Post Reported'.html_safe, flag, method: :delete, class: 'actionLink undoLink'
+      link_to '<span class="actionIcon report"></span> Post Reported'.html_safe, flag, method: :delete, class: 'actionLink undoLink', title: 'Remove flag'
     else
-      link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class
+      link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class, title: 'Flag post'
     end
   end
 end
