@@ -13,6 +13,15 @@ class FlagsController < ApplicationController
   end
 
   def destroy
+    @flag = Flag.find(params[:id])
+
+    respond_to do |format|
+      if @flag.destroy
+        format.html {redirect_to @flag.flaggable, notice: "Success! Remove flag from post."}
+      else
+        format.html {redirect_to @flag.flaggable, alert: DEFAULT_ERROR_MSG}
+      end
+    end
   end
 
 private
