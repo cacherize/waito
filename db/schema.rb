@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141112051303) do
+ActiveRecord::Schema.define(:version => 20141128080247) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(:version => 20141112051303) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
+
+  create_table "flags", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "flaggable_id"
+    t.string   "flaggable_type"
+    t.string   "reason"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "flags", ["user_id"], :name => "index_flags_on_user_id"
 
   create_table "post_tags", :force => true do |t|
     t.integer  "post_id"
