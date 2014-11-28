@@ -114,3 +114,25 @@ $.fn.sortMenu = function() {
     }
   });
 };
+
+$.fn.dropMenu = function(button) {
+  var $menu = this, $button = $(button), $display;
+
+  $button.addClass('dm');
+  $menu.addClass('dm');
+  
+  $menu.parent().children('.dm').wrapAll("<div class='dMenu'></div>")
+  $display = $menu.parent(".dMenu");
+
+  $display.mouseover(function(){ $menu.show() });
+  $display.mouseleave(function(){ $menu.hide() });
+  $button.click(function(event){
+    if ($menu.is(":visible")) {
+      $menu.hide();
+    } else {
+      $menu.show();
+    }
+
+    event.preventDefault();
+  });
+};
