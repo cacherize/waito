@@ -13,4 +13,5 @@ class Flag < ActiveRecord::Base
 
   validates_presence_of :user_id, :reason
   validates_inclusion_of :reason, in: REASON_LIST.values, if: Proc.new{|f| f.reason.present?}
+  validates_uniqueness_of :user_id, :scope => [:flaggable_type, :flaggable_id] , if: Proc.new{|f| f.user_id.present?}
 end
