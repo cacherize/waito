@@ -3,4 +3,11 @@ class Flag < ActiveRecord::Base
 
   belongs_to :flaggable, polymorphic: true
   belongs_to :user
+
+  REASON_LIST = {
+    'Spam' => 'spam',
+    'Advertisement' => 'advertisement',
+    'Obscene Content' => 'obscene',
+    'Breaks Rules' => 'rules'
+  }
 end
