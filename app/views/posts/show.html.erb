@@ -7,6 +7,11 @@
     <% else %>
       <%= link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, '', class: 'actionLink'+login_popup_class %>
       <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class %>
+      <ul class="dropMenu">
+        <% Flag::REASON_LIST.each do |k,v| %>
+          <li><%= link_to k, post_flags_path(@post, flag: {reason: v}), method: :post, class: login_popup_class %></li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
   <div class="postContent"><%= @post.description? ? markdown(@post.description) : "<span class='placeholder'>No desciption</span>".html_safe %></div>
@@ -41,4 +46,4 @@
 
 <div id="commentList" data-comment-load-path="<%= post_comments_path(@post) %>"><%= spinner %></div>
 <%= javascript_include_tag params[:controller] %>
-<script>loadPostComments()</script>
+<script>initializePostShow()</script>

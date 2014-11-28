@@ -26,8 +26,10 @@ $(document).ready(function(){
   });
 });
 
-var loadPostComments = function(){
+var initializePostShow = function(){
   var $target = $("#commentList");
+  
+  $(".dropMenu").dropMenu('.reportLink')
   renderComments($target.data("comment-load-path"));
 
   $target.on('click', '.dropMenu li a', function(event){
