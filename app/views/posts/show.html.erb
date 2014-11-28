@@ -6,7 +6,7 @@
       <%= link_to '<span class="actionIcon delete"></span> Delete Post'.html_safe, @post, method: :delete, confirm: "Are you sure you want to delete this post?", class: 'actionLink deleteLink' %>
     <% else %>
       <%= link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, '', class: 'actionLink'+login_popup_class %>
-      <%= link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class %>
+      <%= post_report_link(@post) %>
       <ul class="dropMenu">
         <% Flag::REASON_LIST.each do |k,v| %>
           <li><%= link_to k, post_flags_path(@post, flag: {reason: v}), method: :post, class: login_popup_class %></li>
