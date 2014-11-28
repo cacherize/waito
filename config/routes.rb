@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  resources :flags, only: [:create, :destroy]
   resources :comments, only: :destroy
   get 'comments/:comment_id/reply_form', to: 'comments#new', as: 'load_reply_form'
   post 'comments/:comment_id/reply', to: 'comments#create', as: 'comment_reply'
