@@ -10,7 +10,7 @@ class ReputationsController < ApplicationController
       if @rep.save
         format.html{redirect_to request.referer, notice: "Success! Voted!"}
       else
-        format.html{redirect_to request.referer, alert: 'An error occurred. Please try again.'}
+        format.html{redirect_to request.referer, alert: DEFAULT_ERROR_MSG}
       end
     end
   end

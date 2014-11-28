@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html{redirect_to request.referer, notice: "Success! Added comment!"}
       else
-        format.html{redirect_to request.referer, alert: 'An error occurred. Please try again.'}
+        format.html{redirect_to request.referer, alert: DEFAULT_ERROR_MSG}
       end
     end
   end
