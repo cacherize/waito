@@ -10,4 +10,7 @@ class Flag < ActiveRecord::Base
     'Obscene Content' => 'obscene',
     'Breaks Rules' => 'rules'
   }
+
+  validates_presence_of :user_id, :reason
+  validates_inclusion_of :reason, in: REASON_LIST.values, if: Proc.new{|f| f.reason.present?}
 end
