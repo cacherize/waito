@@ -2,11 +2,14 @@
   display:inline;
   text-align:left;
   position:relative;
-  #displayWord {
-    color:#FF8C00;
+  #displayWordWrapper {
     width:100px;
     display:inline-block;
-    white-space: nowrap
+    #displayWord {
+      color:#FF8C00;
+      white-space: nowrap;
+      vertical-align:text-bottom;
+    }
   }
   #wordList {
     display:none;

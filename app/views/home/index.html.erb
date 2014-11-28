@@ -1,7 +1,7 @@
 <div class="banner">
   <h1 class="bannerHeader">Need Help Thinking of the Name of that
     <div id="wordTransition">
-      <span id="displayWord">Song?</span>
+      <div id="displayWordWrapper"><span id="displayWord">Song?</span></div>
       <ul id="wordList">
         <li class="displayed">Song?</li>
         <li>Movie?</li>
@@ -43,12 +43,6 @@
 
 <script>
 $(document).ready(function(){
-  // $("#slider").tinycarousel({
-  //   axis: "y",
-  //   interval: true,
-  //   intervalTime: 5000
-  // });
-
   cycleWord();
 
   function cycleWord(){
@@ -69,9 +63,9 @@ $(document).ready(function(){
         $nextWord = $displayed.next('li').addClass('displayed');
       }
 
-      $wordContainer.animate({opacity: 0}, function(){
+      $wordContainer.fadeOut(500, function(){
         $wordContainer.text($nextWord.text());
-        $wordContainer.animate({opacity: 1});
+        $wordContainer.slideDown();
       });
 
       cycleWord();
