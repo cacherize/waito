@@ -9,7 +9,13 @@
       <%= post_report_link(@post) %>
       <ul class="dropMenu">
         <% Flag::REASON_LIST.each do |k,v| %>
-          <li><%= link_to k, post_flags_path(@post, flag: {reason: v}), method: :post, class: login_popup_class, remote: true %></li>
+          <li>
+            <%= link_to k, 
+              post_flags_path(@post, flag: {reason: v}),
+              method: :post, class: login_popup_class,
+              remote: true, confirm: 'Are you sure you want to report this post?' 
+            %>
+          </li>
         <% end %>
       </ul>
     <% end %>
