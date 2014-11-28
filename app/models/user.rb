@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :suggestions
   has_many :support_tickets
+  has_many :flags
 
   # VALIDATIONS ==================
   validates :email, presence: true, on: :create
