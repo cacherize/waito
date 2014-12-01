@@ -145,6 +145,17 @@ hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 .alert {background:#f33;}
 .notice {background:green;}
 .flashShow, .flashClose {
+  text-align:center;
+  width:45px;
+  height:100%;
+  position:absolute;
+  right:0;
+  top:0;
+  line-height:45px;
+}
+a.flashCloseLink {display:block; color:#fff;}
+a.flashCloseLink:hover {background:#f66;}
+.flashShow {
   border:1px solid;
   border-radius:100%;
   line-height:22px;
@@ -174,9 +185,8 @@ hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
   -moz-animation: pulsate 1s ease-out;
   -moz-animation-iteration-count: infinite;
 }
-.flashShow:hover, .flashClose:hover {background-color:rgba(255,255,255,0.3);}
+.flashShow:hover {background-color:rgba(255,255,255,0.3);}
 .flashShow:hover {color:#f33;}
-.flashClose:hover {color:#fff;}
 
 @-webkit-keyframes pulsate {
     0% {opacity: 0.4;}
