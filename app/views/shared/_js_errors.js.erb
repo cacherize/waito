@@ -1,12 +1,3 @@
-if ($(".flash").length) {
-  if ($(".alert").length) {
-    $(".alert").text('<%= escape_javascript(error) %>');
-  } else {
-    $(".flash").html('<p class="alert"><%= escape_javascript(error) %></p>');
-  }
-  $(".flash, .alert, .flashClose").show();
-  $(".flashShow").hide();
-} else {
-  $("#body").prepend("<%= escape_javascript(js_errors(error)) %>")
-}
+$(".flash").remove();
+$("#body").prepend("<%= escape_javascript(js_errors(error)) %>");
 initializeFlashMessageLinks();
