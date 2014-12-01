@@ -5,13 +5,13 @@ module FormHelper
     if object.errors.messages.present?
       errors = []
       object.errors.full_messages.each do |msg|
-        errors << "<li>#{msg}</li>"
+        errors << content_tag(:li, msg)
       end
       
-      "<div class='formErrors'>
-        <h3 class='errorsHeader'>Form Errors</h3>
-        <ul>#{errors.join}</ul>
-       </div>".html_safe
+      content_tag :div, class: 'formErrors' do
+        content_tag(:h3, 'Form Errors', class: 'errorsHeader') +
+        content_tag(:ul, errors.join.html_safe)
+      end
     end
   end
 end
