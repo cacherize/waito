@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
   def create
-    @pin = Pin.new(params[:pin])
+    @post = Post.find(params[:post_id])
+    @pin = @post.pins.new(user_id: current_user.id)
 
     respond_to do |format|
       if @pin.save
