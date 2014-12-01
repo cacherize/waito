@@ -6,6 +6,7 @@ class PinsController < ApplicationController
     respond_to do |format|
       if @pin.save
         format.html{redirect_to @pin.post, notice: 'Success! Post pinned.'}
+        format.js
       else
         format.html{redirect_to @pin.post, alert: DEFAULT_ERROR_MSG}
       end

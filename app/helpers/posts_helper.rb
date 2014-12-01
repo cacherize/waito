@@ -52,7 +52,7 @@ module PostsHelper
     if current_user && pin = post.pins.where(user_id: current_user.id).first
       link_to content_tag(:span, '', class: 'actionIcon pin') + ' Post Pinned', pin_path(pin), method: :delete, class: 'actionLink successLink', title: 'Unpin post'
     else
-      link_to content_tag(:span, '', class: 'actionIcon pin') + ' Pin Post', post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class, title: 'Pin post'
+      link_to content_tag(:span, '', class: 'actionIcon pin') + ' Pin Post', post_pins_path(post), method: :post, class: 'actionLink pinLink'+login_popup_class, title: 'Pin post', remote: true
     end
   end
 end
