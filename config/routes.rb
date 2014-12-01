@@ -1,4 +1,5 @@
 Waito::Application.routes.draw do
+  resources :pins, only: :destroy
   resources :flags, only: :destroy
   resources :comments, only: :destroy
   get 'comments/:comment_id/reply_form', to: 'comments#new', as: 'load_reply_form'
@@ -9,6 +10,7 @@ Waito::Application.routes.draw do
   get 'tag_search', to: 'tag_search#index', as: 'tag_search'
   resources :tags
   resources :posts do
+    resources :pin, only: :create
     resources :flags, only: :create
     resources :comments, only: [:create, :index]
   end
