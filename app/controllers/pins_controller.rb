@@ -9,6 +9,7 @@ class PinsController < ApplicationController
         format.js
       else
         format.html{redirect_to @pin.post, alert: DEFAULT_ERROR_MSG}
+        format.js{render partial: '/shared/js_errors', locals: {error: DEFAULT_ERROR_MSG}}
       end
     end
   end
@@ -22,6 +23,7 @@ class PinsController < ApplicationController
         format.js
       else
         format.html{redirect_to @pin.post, alert: DEFAULT_ERROR_MSG}
+        format.js{render partial: '/shared/js_errors', locals: {error: DEFAULT_ERROR_MSG}}
       end
     end
   end
