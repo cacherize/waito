@@ -153,40 +153,25 @@ hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
   top:0;
   line-height:45px;
 }
-a.flashCloseLink {display:block; color:#fff;}
-a.flashCloseLink:hover {background:#f66;}
-.flashShow {
+.flashShow {display:none;}
+a.flashShowLink {
+  color:#f33;
   border:1px solid;
   border-radius:100%;
   line-height:22px;
   height:22px;
   width:22px;
-  top:11px;
-  right:18px;
-  position:absolute;
   z-index:5;
   text-align:center;
-  color:#fff;
-  display:none;
-  font-size:10.5px;
-  box-shadow:0 -1px 1px #555 inset;
-  text-shadow: 0 -1px 0 #555;
-  background:linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
-}
-.flashShow{
-  font-weight:700;
-  font-size:14px;
-  color:#f33;
-  background:none;
-  box-shadow:none;
-  text-shadow:none;
+  display:inline-block;
   -webkit-animation: pulsate 1s ease-out;
   -webkit-animation-iteration-count: infinite;
   -moz-animation: pulsate 1s ease-out;
   -moz-animation-iteration-count: infinite;
+  font-weight:bold;
 }
-.flashShow:hover {background-color:rgba(255,255,255,0.3);}
-.flashShow:hover {color:#f33;}
+a.flashCloseLink {display:block; color:#fff; font-weight:700;}
+a.flashCloseLink:hover {background:rgba(255,255,255,0.3);}
 
 @-webkit-keyframes pulsate {
     0% {opacity: 0.4;}
