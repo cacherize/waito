@@ -19,6 +19,7 @@ class PinsController < ApplicationController
     respond_to do |format|
       if @pin.destroy
         format.html{redirect_to @pin.post, notice: 'Success! Post unpinned.'}
+        format.js
       else
         format.html{redirect_to @pin.post, alert: DEFAULT_ERROR_MSG}
       end
