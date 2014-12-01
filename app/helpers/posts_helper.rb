@@ -42,17 +42,17 @@ module PostsHelper
 
   def post_report_link(post)
     if current_user && flag = post.flags.where(user_id: current_user.id).first
-      link_to '<span class="actionIcon report"></span> Post Reported'.html_safe, flag, method: :delete, class: 'actionLink undoLink', title: 'Remove flag'
+      link_to content_tag(:span, '', class: 'actionIcon report') + ' Post Flagged', flag, method: :delete, class: 'actionLink successLink', title: 'Remove flag'
     else
-      link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class, title: 'Flag post'
+      link_to content_tag(:span, '', class: 'actionIcon report') + ' Flag Post', '', class: 'actionLink reportLink'+login_popup_class, title: 'Flag post'
     end
   end
 
   def post_pin_link(post)
     if current_user && pin = post.pins.where(user_id: current_user.id).first
-      link_to '<span class="actionIcon pin"></span> Post Pinned'.html_safe, pin_path(pin), method: :destroy, class: 'actionLink successLink', title: 'Unpin post'
+      link_to content_tag(:span, '', class: 'actionIcon pin') + ' Post Pinned', pin_path(pin), method: :delete, class: 'actionLink successLink', title: 'Unpin post'
     else
-      link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class, title: 'Pin post'
+      link_to content_tag(:span, '', class: 'actionIcon pin') + ' Pin Post', post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class, title: 'Pin post'
     end
   end
 end
