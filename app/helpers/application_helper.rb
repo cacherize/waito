@@ -42,8 +42,10 @@ module ApplicationHelper
   end
 
   def js_errors(error)
-    content_tag :div, class: 'jsError' do
-      content_tag :span, error, class: 'jsErrorMsg'
+    content_tag :div, class: 'flash' do
+      content_tag(:p, error, class: 'alert') +
+      content_tag(:div, link_to('X', '#', class: 'flashCloseLink')+
+            link_to('!', '#', class: 'flashShow'), class: 'flashClose')
     end
   end
 end

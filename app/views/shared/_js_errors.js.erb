@@ -1,6 +1,6 @@
-if ($(".jsError").length) {
-  $(".jsErrorMsg").text('<%= escape_javascript(error) %>');
-  $(".jsError").show();
+if ($(".alert").length) {
+  $(".alert").text('<%= escape_javascript(error) %>');
+  $(".flash").show();
 } else {
-  $("#content").prepend("<%= escape_javascript(js_errors(error)) %>")
+  $("#body").prepend("<%= escape_javascript(js_errors(error)) %>")
 }
