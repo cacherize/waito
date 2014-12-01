@@ -49,6 +49,10 @@ module PostsHelper
   end
 
   def post_pin_link(post)
-    link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class
+    if current_user && pin = post.pins.where(user_id: current_user.id).first
+      link_to '<span class="actionIcon pin"></span> Post Pinned'.html_safe, pin_path(pin), method: :destroy, class: 'actionLink successLink', title: 'Unpin post'
+    else
+      link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class, title: 'Pin post'
+    end
   end
 end
