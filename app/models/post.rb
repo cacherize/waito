@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   has_many :reputations, as: :reputable
   has_many :comments, as: :commentable
   has_many :flags, as: :flaggable
+  has_many :pins
   belongs_to :user
 
   validates :title, presence: true, length: {maximum: 150}

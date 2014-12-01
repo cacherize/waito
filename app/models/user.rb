@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :suggestions
   has_many :support_tickets
   has_many :flags
+  has_many :pins
 
   # VALIDATIONS ==================
   validates :email, presence: true, on: :create
