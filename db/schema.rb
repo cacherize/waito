@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141128080247) do
+ActiveRecord::Schema.define(:version => 20141201033247) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(:version => 20141128080247) do
   end
 
   add_index "flags", ["user_id"], :name => "index_flags_on_user_id"
+
+  create_table "pins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pins", ["user_id", "post_id"], :name => "index_pins_on_user_id_and_post_id", :unique => true
 
   create_table "post_tags", :force => true do |t|
     t.integer  "post_id"
