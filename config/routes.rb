@@ -10,7 +10,7 @@ Waito::Application.routes.draw do
   get 'tag_search', to: 'tag_search#index', as: 'tag_search'
   resources :tags
   resources :posts do
-    resources :pin, only: :create
+    resources :pins, only: :create
     resources :flags, only: :create
     resources :comments, only: [:create, :index]
   end
