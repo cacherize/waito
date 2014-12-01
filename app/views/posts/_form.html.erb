@@ -27,7 +27,7 @@
         <span class="submitIcon"></span> <%= @post.new_record? ? 'Create Post' : 'Save Changes' %>
       <% end %>
       
-      <%= link_to '<span class="cancelIcon"></span> Cancel'.html_safe, cancel_post_path(@post), class: 'cancelForm' %>
+      <%= link_to content_tag(:span, '', class: "cancelIcon") + ' Cancel', cancel_post_path(@post), class: 'cancelForm' %>
     </div>
   <% end %>
 </div>
