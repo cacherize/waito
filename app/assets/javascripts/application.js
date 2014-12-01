@@ -25,7 +25,6 @@ $(document).ready(function(){
   });
 
   if ($(".flash").length > 0) {
-    timeoutFlashMessage();
     initializeFlashMessageLinks()
   }
 
@@ -36,6 +35,8 @@ $(document).ready(function(){
 });
 
 var initializeFlashMessageLinks = function() {
+  timeoutFlashMessage();
+  
   $(".flash").on('click', '.flashShowLink, .flashCloseLink', function(event){
     var $that = $(this),
         $parent = $that.closest('.flash'),
