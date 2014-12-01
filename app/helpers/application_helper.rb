@@ -40,4 +40,10 @@ module ApplicationHelper
   def spinner
     image_tag 'loader.gif', alt: 'Loading...'
   end
+
+  def js_errors(error)
+    content_tag :div, class: 'jsError' do
+      content_tag :span, error, class: 'jsErrorMsg'
+    end
+  end
 end
