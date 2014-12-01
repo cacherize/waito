@@ -47,4 +47,8 @@ module PostsHelper
       link_to '<span class="actionIcon report"></span> Report Post'.html_safe, '', class: 'actionLink reportLink'+login_popup_class, title: 'Flag post'
     end
   end
+
+  def post_pin_link(post)
+    link_to '<span class="actionIcon pin"></span> Pin Post'.html_safe, post_pins_path(post), method: :post, class: 'actionLink'+login_popup_class
+  end
 end
