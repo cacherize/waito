@@ -26,24 +26,7 @@ $(document).ready(function(){
 
   if ($(".flash").length > 0) {
     timeoutFlashMessage();
-
-    $(".flash").on('click', '.flashShow, .flashClose', function(event){
-      var $that = $(this),
-          $parent = $that.parent('.flash'),
-          $flashMsg = $that.siblings("p");
-
-
-      if ($flashMsg.is(":visible")) {
-        $that.hide();
-
-        $flashMsg.stop().slideUp(function(){
-          $that.siblings('.flashShow').show();
-        });
-      } else {
-        timeoutFlashMessage();
-      }
-      event.preventDefault();
-    });
+    initializeFlashMessageLinks()
   }
 
   $("#content").on('click', '.loginPopupLink', function(event){
@@ -51,6 +34,26 @@ $(document).ready(function(){
     return false;
   });
 });
+
+var initializeFlashMessageLinks = function() {
+  $(".flash").on('click', '.flashShowLink, .flashCloseLink', function(event){
+    var $that = $(this),
+        $parent = $that.closest('.flash'),
+        $flashMsg = $parent.children("p");
+
+
+    if ($flashMsg.is(":visible")) {
+      $that.parent().hide();
+
+      $flashMsg.stop().slideUp(function(){
+        $parent.children('.flashShow').show();
+      });
+    } else {
+      timeoutFlashMessage();
+    }
+    event.preventDefault();
+  });
+}
 
 var timeoutFlashMessage = function() {
   var $flashMsg = $(".flash p");
