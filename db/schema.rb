@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141201033247) do
+ActiveRecord::Schema.define(:version => 20141209024214) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20141201033247) do
     t.datetime "deleted_at"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.string   "question",   :limit => 512
+    t.text     "answer"
+    t.integer  "sort",                      :default => 0
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "flags", :force => true do |t|
