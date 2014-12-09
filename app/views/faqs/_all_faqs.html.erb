@@ -1,6 +1,6 @@
 <div id="faqs">
   <% @faqs.each do |faq| %>
-    <div class="faq">
+    <div class="faq" id="question<%= faq.id %>">
       <div class="faqHeader">
         <div class="faqSymbol">Q.</div>
         <div class="faqQuestion"><%= faq.question %></div>

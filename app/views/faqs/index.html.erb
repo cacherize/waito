@@ -10,7 +10,7 @@
   <% @faqs.in_groups(3, false).each do |group| %>
     <ul class="faqList">
       <% group.each do |faq| %>
-        <li><%= link_to faq.question, faq %></li>
+        <li><%= link_to faq.question, '#question'+faq.id.to_s %></li>
       <% end %>
     </ul>
   <% end %>
