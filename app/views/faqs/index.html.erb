@@ -1,3 +1,20 @@
+<h1 class="pageHeader">FAQS</h1>
+
 <% if current_user.try(:admin?) %>
   <%= render 'form' %>
 <% end %>
+
+<hr class="dottedDivider"/>
+
+<div id="faqsIndex">
+  <% @faqs.in_groups(3, false).each do |group| %>
+    <ul class="faqList">
+      <% group.each do |faq| %>
+        <li><%= link_to faq.question, faq %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <br class="clear"/>
+</div>
+
+<hr class="dottedDivider"/>

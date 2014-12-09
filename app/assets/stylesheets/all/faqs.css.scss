@@ -20,3 +20,13 @@
     }
   }
 }
+
+#faqsIndex {
+  font-size:0.8em;
+  .faqList {
+    width:33.3%;
+    padding:0;
+    float:left;
+    li {margin-left:15px;}
+  }
+}
