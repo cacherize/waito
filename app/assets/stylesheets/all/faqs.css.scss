@@ -31,3 +31,25 @@
     li {margin-left:15px;}
   }
 }
+
+#faqs {
+  .faq {
+    margin:20px 0 0;
+    .faqHeader, .faqBody {
+      padding-left:80px;
+      position:relative;
+    }
+    .faqSymbol {
+      font-size:22pt;
+      font-weight:normal;
+      position:absolute;
+      width:70px;
+      text-align:right;
+      left:0; top:0;
+    }
+    .faqHeader {
+      font-size:22pt;
+      margin-bottom:5px;
+    }
+  }
+}
