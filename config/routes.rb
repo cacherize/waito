@@ -15,7 +15,7 @@ Waito::Application.routes.draw do
     resources :comments, only: [:create, :index]
   end
 
-  resources :faqs
+  resources :faqs, only: [:index, :create, :update]
   resources :suggestions
   resources :support_tickets, only: [:index, :create, :new, :update]
   get 'support', to: 'support_tickets#new'
