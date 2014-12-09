@@ -1,3 +1,3 @@
 class Faq < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :question, :answer, :sort
 end
