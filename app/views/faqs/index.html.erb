@@ -1,0 +1,3 @@
+<% if current_user.try(:admin?) %>
+  <%= render 'form' %>
+<% end %>
