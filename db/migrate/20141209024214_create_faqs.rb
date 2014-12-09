@@ -4,6 +4,7 @@ class CreateFaqs < ActiveRecord::Migration
       t.string :question, limit: 512
       t.text :answer
       t.integer :sort, default: 0
+      t.datetime :archived_at
       t.timestamps
     end
   end
