@@ -34,7 +34,8 @@
 
 #faqs {
   .faq {
-    margin:20px 0 0;
+    margin:10px 0 0;
+    padding:10px 0;
     .faqHeader, .faqBody {
       padding-left:80px;
       position:relative;
@@ -50,6 +51,9 @@
     .faqHeader {
       font-size:22pt;
       margin-bottom:5px;
+    }
+    &:target {
+      background:#eee;
     }
   }
 }
