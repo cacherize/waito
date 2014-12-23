@@ -121,7 +121,7 @@ li {list-style-type:square;}
 .noMargin {margin:0;}
 .noPadding {padding:0;}
 .placeholder {color:#888; font-style:italic;}
-h1.pageHeader {font-size:2.5em; font-weight:300; margin:10px 0;}
+h1.pageHeader {font-size:2.5em; font-weight:300; margin:25px 0 10px;}
 hr.dottedDivider {background:none; border:0; border-top:1px dashed;}
 
 .positive {color:green;}
