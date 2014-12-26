@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   def show
     @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{Date.today.year}/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
     @user = User.username_search(params[:id])
+
+    load_previews
   end
 
   def edit
@@ -62,5 +64,11 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
+  end
+
+private
+
+  def load_previews
+    @recent_posts = @user.recent_posts
   end
 end

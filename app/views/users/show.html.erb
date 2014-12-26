@@ -8,6 +8,13 @@
     <%= link_to '<span class="actionIcon edit"></span> Edit User'.html_safe, edit_user_path(@user), class: 'actionLink' %>
     <span id="joinedDatestamp">Joined: <%= displayed_created_at(@user.created_at) %></span>
   </div>
+
+  <div id="profileContent">
+    <h2 id="profileContentHeader">Recent Posts</h2>
+    <div id="previewList">
+      <%= render partial: 'posts/previews', collection: @recent_posts, as: :post %>
+    </div>
+  </div>
 </div>
 
 <%= javascript_include_tag params[:controller] %>
