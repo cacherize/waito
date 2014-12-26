@@ -80,4 +80,8 @@ class User < ActiveRecord::Base
 
     return saved
   end
+
+  def recent_posts
+    self.posts.order('created_at DESC').not_deleted.last(5)
+  end
 end
