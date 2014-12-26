@@ -13,6 +13,8 @@ class Post < ActiveRecord::Base
   validates :tags, presence: {message: "must be added"}
   validate :tag_count
 
+  scope :not_deleted, where(deleted_at: nil)
+
   def tag_count
     errors.add(:tags, 'exceed maximum allowed (maximum 5 tags)') if tags.size > 5
   end
