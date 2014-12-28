@@ -1,2 +1,2 @@
 $("#<%= object_css_identifier(@reputable, 'rep') %>").
-  replaceWith("<%= escape_javascript(render partial: 'reputations/display', locals: {object: @reputable, user_rep: @rep, reputations: @reputation}) %>")
+  replaceWith("<%= escape_javascript(render partial: 'reputations/display', locals: {object: @reputable, user_rep: @rep, reputation: @reputation}) %>")
