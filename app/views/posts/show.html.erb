@@ -25,11 +25,8 @@
     <div class="postTags">
       <%= render(partial: 'tags/tag', collection: @post.tags) || "This post has no tags." %>
     </div>
-    <div class="postRep">
-      <%= voting_link(1.0, @post, @user_vote) %>
-      <p class="repCount"><%= reputation_display(@votes) %></p>
-      <%= voting_link(-1.0, @post, @user_vote) %>
-    </div>
+
+    <%= render partial: 'reputations/display', locals: {object: @post, user_rep: @user_vote, reputations: @votes} %>
   </div>
 
   <div class="postUser">

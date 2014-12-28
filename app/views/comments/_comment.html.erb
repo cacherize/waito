@@ -20,10 +20,13 @@
         <% end %>
       </div>
     <% end %>
-    <div class="postRep">
-      <%= voting_link(1.0, comment, details[:user_rep]) %>
-      <p class="repCount"><%= reputation_display(details[:reputation]) %></p>
-      <%= voting_link(-1.0, comment, details[:user_rep]) %>
-    </div>
+
+    <%= render(
+      partial: 'reputations/display',
+      locals: {
+        object: comment,
+        user_rep: details[:user_rep],
+        reputations: details[:reputation]})
+    %>
   </div>
 </div>
