@@ -16,7 +16,6 @@ module PostsHelper
 
     if existing_vote && existing_vote.value == value
       css_classes += " voted"
-      title += ' (voted)'
 
       return content_tag :span, '', class: css_classes, title: 'Already voted'
     else
