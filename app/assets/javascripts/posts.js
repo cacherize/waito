@@ -57,3 +57,7 @@ var collapseSubcomments = function(link){
 var closeReplyForm = function(link){
   $(link).closest(".subCommentForm").slideUp();
 }
+
+var voteProcessingAnim = function(link){
+  $(link).parent().html("<img src='/assets/loader.gif' alt='loading...' />")
+}

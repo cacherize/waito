@@ -23,7 +23,7 @@ module PostsHelper
       css_classes += " loginPopupLink"
     end
 
-    link_to '', path, method: :put, class: css_classes, title: title
+    link_to '', path, method: :put, class: css_classes, title: title, onclick: "voteProcessingAnim(this);"
   end
 
   def reputation_display(rep)
