@@ -48,4 +48,8 @@ module ApplicationHelper
       content_tag(:div, link_to('!', '#', class: 'flashShowLink'), class: 'flashShow')
     end
   end
+
+  def object_css_identifier(object, value=nil)
+    object.class.name.underscore + (value ? "_#{value}" : "") + "_#{object.id}"
+  end
 end
