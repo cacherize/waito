@@ -17,13 +17,13 @@ module PostsHelper
     if existing_vote && existing_vote.value == value
       css_classes += " voted"
       title += ' (voted)'
-    end
 
-    unless current_user
-      css_classes += " loginPopupLink"
-    end
+      return content_tag :span, '', class: css_classes, title: 'Already voted'
+    else
+      css_classes += " loginPopupLink" unless current_user
 
-    link_to '', path, method: :put, class: css_classes, title: title, onclick: "voteProcessingAnim(this);", remote: current_user.present?
+      return link_to '', path, method: :put, class: css_classes, title: title, onclick: "voteProcessingAnim(this);", remote: current_user.present?
+    end
   end
 
   def reputation_display(rep)
