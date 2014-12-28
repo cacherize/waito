@@ -5,7 +5,8 @@ class ReputationsController < ApplicationController
   def update
     load_reputable
     @rep = Reputation.create_or_update_rep(@reputable, current_user, params[:rep_val])
-    
+    sleep 0.5
+
     respond_to do |format|
       if @rep.save
         format.html{redirect_to request.referer, notice: "Success! Voted!"}
