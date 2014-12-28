@@ -9,8 +9,10 @@ class ReputationsController < ApplicationController
     respond_to do |format|
       if @rep.save
         format.html{redirect_to request.referer, notice: "Success! Voted!"}
+        format.js
       else
         format.html{redirect_to request.referer, alert: DEFAULT_ERROR_MSG}
+        format.js{render partial: '/shared/js_errors', locals: {error: DEFAULT_ERROR_MSG}}
       end
     end
   end
